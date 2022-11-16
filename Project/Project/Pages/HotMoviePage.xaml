@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Project.Pages.HotMoviePage"
+             BackgroundColor="#191a32"
+             Title="Mới&amp;Hot">
+
+    <Shell.TitleView>
+        <StackLayout>
+            <Label Text="Mới&amp;Hot" TextColor="White" FontSize="Title" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="6, 16, 16, 16">
+            <!--<Label Text="Sắp ra mắt!!!" FontSize="20" TextColor="White" FontAttributes="Bold"/>-->
+            <CollectionView x:Name="CvMovieDetail">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="1" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,30,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Grid.Row="0"
+                                         HorizontalOptions="CenterAndExpand">
+                                <Label Text="THG 12" TextColor="#aaa" FontSize="14" />
+                                <Label Text="12" TextColor="White" FontSize="24" FontAttributes="Bold"
+                                       HorizontalTextAlignment="Center" Margin="0, -8, 0, 0" />
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Grid.Row="0">
+                                    <Frame Padding="0"
+                                           CornerRadius="12">
+                                        <Image 
+                                               Aspect="AspectFill"
+                                               Source="filmdemo.png"/>
+                                    </Frame>
+                                <Label x:Name="CvMovies" Text="{Binding Name}" TextColor="White"
+                                       FontSize="18" FontAttributes="Bold" />
+                                <Label TextColor="#bbb"
+                                       Text="Đang tất bật chuẩn bị cho đám cưới triệu đô cùng chàng Jack điển trai, Đại mỹ nhân showbiz Ms. Q / Hoàng Quyên (Ninh Dương Lan Ngọc) bất ngờ gặp lại Quỳnh Yên (Kaity Nguyễn), một người em gái đã mất liên lạc từ lâu. Ngay sau đó, các rắc rối bí ẩn liên tục ập đến, kéo theo hàng loạt bí mật đen tối của cả hai cũng dần bị lột trần. Ai là kẻ đứng sau 'giật dây' mọi chuyện? Ai mới là nạn nhân? P/S: Bất kể cô ta có nói gì cũng nên nhớ: Đừng tin lời cô ta nói!" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

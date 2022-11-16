@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Project.Pages.ContactPage"
+             BackgroundColor="#191a32"
+             Title="Liên hệ với chúng tôi">
+
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center"  Orientation="Horizontal">
+            <Label Text="Liên hệ với chúng tôi" TextColor="White" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="backicon.png"
+                       Grid.Column="0"
+                       HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapBack" Tapped="TapBack_Tapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       TextColor="White"
+                       Text="Contact Us"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+            </Grid>-->
+            <Label Text="Liên hệ với" TextColor="White" Margin="0, 30, 0, 0"
+                   FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="Dịch vụ khách hàng của B.T.CINEMA" FontSize="18"  TextColor="White"
+                   FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            <Label Text="Nếu bạn có bất kỳ ý kiến hoặc phản hồi gì vui lòng liên hệ với chúng tôi."
+                   TextColor="White" HorizontalOptions="Center"
+                   Margin="30, 0"
+                   FontSize="15" />
+            <Button x:Name="BtnCall"
+                    Margin="28"
+                    Text="Call 0123456789"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontSize="Medium"
+                    CornerRadius="24" 
+                    Clicked="BtnCall_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:Project.Renderers"
+             xmlns:pages="clr-namespace:Project.Pages"
+             x:Class="Project.MainPage"
+             Shell.ForegroundColor="White"
+             Shell.TabBarTitleColor="#1CB5E0"
+             BackgroundColor="#191a32"
+             UnselectedColor="#aaa">
+    <!--mc:Ignorable="d"-->
+    <!-- Place new controls here -->
+    <!--<Entry Placeholder="Built in Entry Control"/>-->
+    <!--<renderers:BorderlessEntry Placeholder="Custom Entry Control" />-->
+    
+    <TabBar Title="B.T CINEMA" Shell.TabBarIsVisible="True" FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Icon="home.png" Title="Trang chủ" >
+            <ShellContent ContentTemplate="{DataTemplate pages:HomePageTest}" />
+        </Tab>
+        <Tab Icon="search1.png" Title="Tìm kiếm" >
+            <ShellContent ContentTemplate="{DataTemplate pages:SearchMoviePage}" />
+        </Tab>
+        <Tab Icon="movie.png" Title="Mới&amp;Hot">
+            <ShellContent ContentTemplate="{DataTemplate pages:HotMoviePage}" />
+        </Tab>
+        <Tab Icon="account1.png" Title="Tài khoản">
+            <ShellContent ContentTemplate="{DataTemplate pages:AccountPage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

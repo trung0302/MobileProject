@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:Project.Renderers"
+             mc:Ignorable="d"
+             x:Class="Project.Pages.SignUpPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#191a32">
+
+    <ContentPage.Resources>
+        <StyleSheetExtension Source="/Styles/SignUp.css"></StyleSheetExtension>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20"
+                     Spacing="15">
+            <Label Text="ĐĂNG KÝ"
+                   TextColor="White"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="Title" />
+            <Image Source="logo.png"
+                   HorizontalOptions="Center"
+                   WidthRequest="250" 
+                   Aspect="AspectFit" />
+            <Label Text="Bắt đầu đăng ký"
+                   Margin="0,-20,0,0"
+                   TextColor="#DC281E"
+                   VerticalOptions="Start"
+                   FontSize="Large"
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Họ và tên" TextColor="White" FontSize="15" />
+            <renderers:NormalEntry Placeholder="Nhập họ tên" Margin="0, -8, 0, 0"
+                                       x:Name="EntName"
+                                       TextColor="#979797" FontSize="14"
+                                       PlaceholderColor="#979797" />
+            <Label Text="Email" TextColor="White" FontSize="15" />
+            <renderers:NormalEntry Placeholder="Nhập email" Margin="0, -8, 0, 0"
+                                       x:Name="EntEmail"
+                                       TextColor="#979797" FontSize="14"
+                                       PlaceholderColor="#979797" />
+            <Label Text="Mật khẩu" TextColor="White" FontSize="15" />
+            <renderers:NormalEntry Placeholder="Nhập mật khẩu" Margin="0, -8, 0, 0"
+                                       x:Name="EntPassword"
+                                       IsPassword="True"
+                                       TextColor="#979797" FontSize="14"
+                                       PlaceholderColor="#979797" />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Margin="0,20,0,0">
+                <Label Text="Bạn đã có tài khoản?" Padding="0, 12"
+                       TextColor="White" />
+                <Label Text="Đăng nhập" Padding="0, 12"
+                       TextDecorations="Underline"
+                       TextColor="#2F80ED">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="LblLogin" Tapped="LblLogin_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Button x:Name="cmdSignup" CornerRadius="50" Text="ĐĂNG KÝ" FontSize="Medium" Margin="0, 20, 0, 0"
+                    FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdSignup_Clicked"></Button>
+            <!--<Image Source="signup.png"
+                   Margin="0,40,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="ImgSignup" Tapped="ImgSignup_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

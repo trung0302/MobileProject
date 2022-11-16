@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:Project.Renderers"
+             mc:Ignorable="d"
+             x:Class="Project.Pages.SearchMoviePage"
+             BackgroundColor="#191a32"
+             Title="Tìm kiếm">
+
+    <Shell.TitleView>
+        <StackLayout>
+            <Label Text="Tìm kiếm" TextColor="White" FontSize="Title" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Frame Padding="5"
+                       HasShadow="False"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="#191a32"
+                       BorderColor="Transparent">
+                    <StackLayout Orientation="Horizontal" Margin="0, 12, 0, 0">
+                        <Frame Margin="0,0,15,0"
+                               Padding="0"
+                               HasShadow="False"
+                               BackgroundColor="#191a32"
+                               HorizontalOptions="FillAndExpand">
+                            <renderers:BorderlessEntry Placeholder="Tìm kiếm phim" FontSize="16" TextColor="White" 
+                                                       PlaceholderColor="LightBlue"
+                                                       x:Name="EntSearchMovie"
+                                                       TextChanged="EntSearchMovie_TextChanged"/>
+                        </Frame>
+                        <Image Source="search1.png" Margin="0, 0, 12, 0" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <CollectionView x:Name="CvMovies"
+                            SelectionMode="Single"
+                            SelectionChanged="CvMovies_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="1"
+                                     Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="15,10,15,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="8*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Aspect="Fill"
+                                   HeightRequest="100"
+                                   VerticalOptions="Start"
+                                   Grid.Column="0"
+                                   Source="{Binding FullImageUrl}"/>
+                            <Label FontSize="Medium"
+                                   Grid.Column="1"
+                                   TextColor="White"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

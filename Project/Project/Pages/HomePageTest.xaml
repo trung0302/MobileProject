@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Project.Pages.HomePageTest"
+             BackgroundColor="#191a32"
+             Title="Trang chủ"
+             >
+
+    <Shell.TitleView>
+        <StackLayout>
+            <Label Text="Trang chủ" TextColor="White" FontSize="Title" FontAttributes="Bold"
+                   HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <ScrollView>
+                <!--Slide-->
+                <StackLayout>
+                    <Label Text="Hiện đang thịnh hành" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
+                    <CollectionView x:Name="CvMovies" SelectionMode="Single"
+                                    RemainingItemsThreshold="1"
+                                    RemainingItemsThresholdReached="CvMovies_RemainingItemsThresholdReached"
+                                    SelectionChanged="CvMovies_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Span="1" HorizontalItemSpacing="7"  
+                                         Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <!--<Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>  
+                                </Grid>-->
+                                <StackLayout Grid.Column="0" Grid.Row="0" Padding="0" IsEnabled="False" BackgroundColor="Red" HorizontalOptions="FillAndExpand">
+                                    <Frame Padding="0" CornerRadius="5" BackgroundColor="Blue">
+                                        <Image x:Name="Img" WidthRequest="100" HeightRequest="150" 
+                                                       Aspect="AspectFill" Source="jisoo.png" />
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <!--<StackLayout>
+                        <Label Text="Phim hành động" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
+                        <CollectionView x:Name="CvMovies1" SelectionMode="Single"
+                                    RemainingItemsThreshold="1"
+                                    RemainingItemsThresholdReached="CvMovies_RemainingItemsThresholdReached"
+                                    SelectionChanged="CvMovies_SelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Span="1" HorizontalItemSpacing="7"
+                                         Orientation="Horizontal" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <StackLayout>
+                                            <Frame Padding="0" CornerRadius="5">
+                                                <Image  WidthRequest="100" HeightRequest="150" Aspect="AspectFill" Source="jisoo.png" />
+                                            </Frame>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>-->
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
