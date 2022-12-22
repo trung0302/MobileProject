@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Project.Pages.MovieDetailPage"
-             BackgroundColor="#263A4F">
+             BackgroundColor="#191a32">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout VerticalOptions="FillAndExpand">
@@ -15,7 +15,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Image x:Name="ImgMovie"
-                           Aspect="Fill"
+                           Aspect="AspectFill"
                            HeightRequest="350" />
                     <BoxView BackgroundColor="Black"
                              HeightRequest="350"
@@ -41,7 +41,7 @@
                 </Grid>
                 <Frame VerticalOptions="FillAndExpand"
                        IsClippedToBounds="False"
-                       BackgroundColor="#263A4F"
+                       BackgroundColor="#191a32"
                        Margin="0,-40,0,0"
                        CornerRadius="25"
                        HasShadow="False">
@@ -57,7 +57,7 @@
                                     CornerRadius="20"
                                     Padding="0">
                                 <Image x:Name="ImgMovieCover"
-                                       Aspect="Fill"
+                                       Aspect="AspectFill"
                                        HeightRequest="200"
                                        VerticalOptions="Start" />
                             </Frame>
@@ -70,7 +70,7 @@
                                        FontSize="Medium" />
                                 <StackLayout Orientation="Horizontal"
                                              Spacing="0">
-                                    <Frame BackgroundColor="#8B93A6"
+                                    <Frame BackgroundColor="#191a32"
                                            BorderColor="#707070"
                                            Padding="8"
                                            CornerRadius="30">
@@ -140,12 +140,14 @@
                                TextColor="White" />
                         <Label x:Name="LblMovieDescription"
                                TextColor="#8B93A6" />
-                        <Image Source="bookticket.png"
+                        <!--<Image Source="bookticket.png"
                                Margin="0,30,0,0">
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="ImgBookTicket" Tapped="ImgBookTicket_Tapped" />
                             </Image.GestureRecognizers>
-                        </Image>
+                        </Image>-->
+                        <Button x:Name="cmdBookTicket" Text="ĐẶT VÉ" FontSize="Medium" Margin="0, 40, 0, 0" CornerRadius="30"
+                    FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdBookTicket_Clicked" ></Button>
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -27,7 +27,7 @@
                    Aspect="AspectFit" />
             <Label Text="Bắt đầu đăng ký"
                    Margin="0,-20,0,0"
-                   TextColor="#DC281E"
+                   TextColor="#2F80ED"
                    VerticalOptions="Start"
                    FontSize="Large"
                    HorizontalOptions="CenterAndExpand" />

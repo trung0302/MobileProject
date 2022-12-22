@@ -16,18 +16,32 @@ namespace Project.Pages
     {
         private int ticketPrice;
         private int movieId;
+        //public ReservationPage(MovieDetail movie)
+        //{
+        //    InitializeComponent();
+        //    LblMovieName.Text = movie.Name;
+        //    LblGenre.Text = movie.Genre;
+        //    LblRating.Text = movie.Rating.ToString();
+        //    LblLanguage.Text = movie.Language;
+        //    LblDuration.Text = movie.Duration;
+        //    ImgMovie.Source = movie.FullImageUrl;
+        //    SpanPrice.Text = SpanTotalPrice.Text = movie.TicketPrice.ToString();
+        //    ticketPrice = movie.TicketPrice;
+        //    movieId = movie.Id;
+        //}
+
         public ReservationPage(MovieDetail movie)
         {
             InitializeComponent();
-            LblMovieName.Text = movie.Name;
-            LblGenre.Text = movie.Genre;
-            LblRating.Text = movie.Rating.ToString();
-            LblLanguage.Text = movie.Language;
-            LblDuration.Text = movie.Duration;
-            ImgMovie.Source = movie.FullImageUrl;
-            SpanPrice.Text = SpanTotalPrice.Text = movie.TicketPrice.ToString();
-            ticketPrice = movie.TicketPrice;
-            movieId = movie.Id;
+            LblMovieName.Text = "Doctor Strange";
+            LblGenre.Text = "123";
+            LblRating.Text = "4.5";
+            LblLanguage.Text = "English";
+            LblDuration.Text = "15";
+            ImgMovie.Source = "posterdemosmall.jpg";
+            SpanPrice.Text = SpanTotalPrice.Text = "$" + "100000";
+            ticketPrice = 100000;
+            movieId = 1;
         }
 
         private void PickerQty_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +77,11 @@ namespace Project.Pages
         private void ImgBack_Tapped(object sender, EventArgs e)
         {
             Navigation.PopModalAsync();
+        }
+
+        private void cmdPayment_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

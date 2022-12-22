@@ -54,7 +54,7 @@
                     <Frame Padding="0"
                            CornerRadius="10">
                         <Image VerticalOptions="Start"
-                               Aspect="Fill"
+                               Aspect="AspectFill"
                                HeightRequest="200"
                                x:Name="ImgMovie"></Image>
                     </Frame>
@@ -202,12 +202,14 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Image Source="reserve.png"
+            <!--<Image Source="reserve.png"
                    Margin="0,30,0,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer x:Name="ImgReserve" Tapped="ImgReserve_Tapped"/>
                 </Image.GestureRecognizers>
-            </Image>
+            </Image>-->
+            <Button x:Name="cmdPayment" Text="THANH TOÁN" FontSize="Medium" Margin="0, 40, 0, 0" CornerRadius="30"
+                    FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdPayment_Clicked" ></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

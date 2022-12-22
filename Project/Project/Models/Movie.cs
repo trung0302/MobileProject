@@ -14,6 +14,6 @@ namespace Project.Models
         public string Genre { get; set; }
         public string ImageUrl { get; set; }
 
-        public string FullImageUrl => AppSettings.ApiUrl + ImageUrl;
+        //public string FullImageUrl => AppSettings.ApiUrl + ImageUrl;
     }
 }

@@ -13,21 +13,23 @@ namespace Project
         public App()
         {
             //Register Syncfusion license
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("YOUR LICENSE KEY");
 
-            InitializeComponent();
-            Device.SetFlags(new string[] { "MediaElement_Experimental" });
-            Device.SetFlags(new string[] { "Brush_Experimental" });
+            //InitializeComponent();
+            //Device.SetFlags(new string[] { "MediaElement_Experimental" });
+            //Device.SetFlags(new string[] { "Brush_Experimental" });
 
-            var accessToken = Preferences.Get("accessToken", string.Empty);
-            if (string.IsNullOrEmpty(accessToken))
-            {
-                MainPage = new NavigationPage(new SignUpPage());
-            }
-            else
-            {
-                MainPage = new MainPage();
-            }
+            //var accessToken = Preferences.Get("accessToken", string.Empty);
+            //if (string.IsNullOrEmpty(accessToken))
+            //{
+            //    MainPage = new NavigationPage(new SignUpPage());
+            //}
+            //else
+            //{
+            //    MainPage = new MainPage();
+            //}
+            MainPage = new NavigationPage(new AppLogo());
+
         }
 
         protected override void OnStart()

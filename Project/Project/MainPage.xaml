@@ -9,6 +9,7 @@
              Shell.ForegroundColor="White"
              Shell.TabBarTitleColor="#1CB5E0"
              BackgroundColor="#191a32"
+             Shell.TabBarBackgroundColor="#182848"
              UnselectedColor="#aaa">
     <!--mc:Ignorable="d"-->
     <!-- Place new controls here -->

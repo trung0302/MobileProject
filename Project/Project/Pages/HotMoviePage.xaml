@@ -37,10 +37,14 @@
                             <StackLayout Grid.Column="1" Grid.Row="0">
                                     <Frame Padding="0"
                                            CornerRadius="12">
-                                        <Image 
+                                    <Image 
                                                Aspect="AspectFill"
-                                               Source="filmdemo.png"/>
-                                    </Frame>
+                                               Source="filmdemo.png">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="ImgDetail" Tapped="ImgDetail_Tapped"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
                                 <Label x:Name="CvMovies" Text="{Binding Name}" TextColor="White"
                                        FontSize="18" FontAttributes="Bold" />
                                 <Label TextColor="#bbb"

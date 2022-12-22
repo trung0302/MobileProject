@@ -26,15 +26,26 @@ namespace Project.Pages
 
         }
 
-        private async void GetMovies()
+        private void GetMovies()
         {
-            pageNumber++;
-            var movies = await ApiService.GetAllMovies(pageNumber, 5);
-            foreach (var movie in movies)
-            {
-                MoviesCollection.Add(movie);
-            }
+            //pageNumber++;
+            //var movies = await ApiService.GetAllMovies(pageNumber, 5);
+            //foreach (var movie in movies)
+            //{
+            //    MoviesCollection.Add(movie);
+            //}
+
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
             CvMovieDetail.ItemsSource = MoviesCollection;
+        }
+
+        private void ImgDetail_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new MovieDetailPage(1));
         }
     }
 }

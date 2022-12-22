@@ -24,7 +24,8 @@
                 <xct:MediaElement x:Name="MediaElementVideo"
                               ShowsPlaybackControls="True"
                               HorizontalOptions="FillAndExpand"
-                              VerticalOptions="FillAndExpand" />
+                              VerticalOptions="FillAndExpand"
+                              />
             </StackLayout>
             <ActivityIndicator x:Name="AILoader"
                                HorizontalOptions="Center"

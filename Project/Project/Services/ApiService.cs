@@ -53,7 +53,7 @@ namespace Project.Services
 
         public static async Task<List<Movie>> GetAllMovies(int pageNumber, int pageSize)
         {
-            await TokenValidator.CheckTokenValidity();
+            //await TokenValidator.CheckTokenValidity();
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/movies/AllMovies?pageNumber={0}&pageSize={1}", pageNumber, pageSize));
@@ -63,7 +63,7 @@ namespace Project.Services
 
         public static async Task<MovieDetail> GetMovieDetail(int movieId)
         {
-            await TokenValidator.CheckTokenValidity();
+            //await TokenValidator.CheckTokenValidity();
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/movies/MovieDetail/" + movieId);
@@ -72,7 +72,7 @@ namespace Project.Services
 
         public static async Task<List<FindMovie>> FindMovies(string movieName)
         {
-            await TokenValidator.CheckTokenValidity();
+            //await TokenValidator.CheckTokenValidity();
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/movies/FindMovies?movieName=" + movieName);
@@ -82,7 +82,7 @@ namespace Project.Services
 
         public static async Task<bool> ReserveMovieTicket(Reservation reservation)
         {
-            await TokenValidator.CheckTokenValidity();
+            //await TokenValidator.CheckTokenValidity();
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(reservation);
             var content = new StringContent(json, Encoding.UTF8, "application/json");

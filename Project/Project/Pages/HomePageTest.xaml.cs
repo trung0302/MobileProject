@@ -28,15 +28,38 @@ namespace Project.Pages
 
         }
 
-        private async void GetMovies()
+        private  void GetMovies()
         {
-            pageNumber++;
-            var movies = await ApiService.GetAllMovies(pageNumber, 5);
-            foreach (var movie in movies)
-            {
-                MoviesCollection.Add(movie);
-            }
+            //pageNumber++;
+            //var movies = await ApiService.GetAllMovies(pageNumber, 5);
+            //foreach (var movie in movies)
+            //{
+            //    MoviesCollection.Add(movie);
+            //}
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
             CvMovies.ItemsSource = MoviesCollection;
+            CvMoviesDexuat.ItemsSource = MoviesCollection;
+            CvMoviesHanhDong.ItemsSource = MoviesCollection;
+            CvMoviesFilm.ItemsSource = MoviesCollection;
+            Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
+            {
+                //CvMoviesFilm.Position = (CvMoviesFilm.Position + 1) % indicatorView.Count;
+                if (CvMoviesFilm.Position == MoviesCollection.ToList().Count() - 1)
+                {
+                    CvMoviesFilm.Position = 0;
+                } 
+                else
+                {
+                    CvMoviesFilm.Position = (CvMoviesFilm.Position + 1);
+
+                }
+                return true;
+            }));
+
         }
 
         //    private async void TapMenu_Tapped(object sender, EventArgs e)
@@ -55,13 +78,25 @@ namespace Project.Pages
             GetMovies();
         }
 
+        //private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+        //    if (currentSelection == null) return;
+        //    Navigation.PushModalAsync(new MovieDetailPage(currentSelection.Id));
+        //    ((CollectionView)sender).SelectedItem = null;
+        //}
         private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
-            if (currentSelection == null) return;
-            Navigation.PushModalAsync(new MovieDetailPage(currentSelection.Id));
+            Navigation.PushModalAsync(new MovieDetailPage(1));
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        private void ImgDetail_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new MovieDetailPage(1));
+        }
+
+        //-------------------------------------------------
 
         //private async void cmdChao_Clicked(object sender, EventArgs e)
         //{
