@@ -46,6 +46,9 @@
     <EmbeddedResource Update="Pages\MovieDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Pages\OrderPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\ReservationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -66,6 +69,9 @@
   <ItemGroup>
     <Compile Update="Pages\HomePageTest.xaml.cs">
       <DependentUpon>HomePageTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
