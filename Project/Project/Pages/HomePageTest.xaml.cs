@@ -28,7 +28,7 @@ namespace Project.Pages
 
         }
 
-        private  void GetMovies()
+        private void GetMovies()
         {
             //pageNumber++;
             //var movies = await ApiService.GetAllMovies(pageNumber, 5);
@@ -44,6 +44,8 @@ namespace Project.Pages
             CvMovies.ItemsSource = MoviesCollection;
             CvMoviesDexuat.ItemsSource = MoviesCollection;
             CvMoviesHanhDong.ItemsSource = MoviesCollection;
+            CvMoviesKinhDi.ItemsSource = MoviesCollection;
+            CvMoviesTinhCam.ItemsSource = MoviesCollection;
             CvMoviesFilm.ItemsSource = MoviesCollection;
             Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
             {
@@ -59,7 +61,6 @@ namespace Project.Pages
                 }
                 return true;
             }));
-
         }
 
         //    private async void TapMenu_Tapped(object sender, EventArgs e)

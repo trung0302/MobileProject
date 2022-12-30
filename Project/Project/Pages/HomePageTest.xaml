@@ -7,8 +7,7 @@
              mc:Ignorable="d"
              x:Class="Project.Pages.HomePageTest"
              BackgroundColor="#191a32"
-             Title="Trang chủ"
-             >
+             Title="Trang chủ">
 
     <Shell.TitleView>
         <StackLayout>
@@ -34,8 +33,7 @@
                                        BorderColor="DarkGray"
                                        Padding="0"
                                        HeightRequest="380"
-                                        HorizontalOptions="FillAndExpand"
-                                       >       
+                                        HorizontalOptions="FillAndExpand">       
                                         <StackLayout>
                                             <Image Source="banner.png"
                                                    Aspect="AspectFill"
@@ -119,6 +117,43 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
+
+                        <!--Phim kinh dị-->
+                        <Label Text="Phim kinh dị" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
+                        <CollectionView x:Name="CvMoviesKinhDi" SelectionMode="Single"
+                                        HeightRequest="200" VerticalOptions="FillAndExpand"
+                                        HorizontalScrollBarVisibility="Never"
+                                        ItemsLayout="HorizontalList"
+                                        SelectionChanged="CvMovies_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="0, 0, 6, 0">
+                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="kinhdiposter.jpg" />
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <!--Phim tình cảm-->
+                        <Label Text="Phim tình cảm" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
+                        <CollectionView x:Name="CvMoviesTinhCam" SelectionMode="Single"
+                                        HeightRequest="200" VerticalOptions="FillAndExpand"
+                                        HorizontalScrollBarVisibility="Never"
+                                        ItemsLayout="HorizontalList"
+                                        SelectionChanged="CvMovies_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="0, 0, 6, 0">
+                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="tinhcamposter.jpg" />
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
