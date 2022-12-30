@@ -46,7 +46,7 @@ namespace Project.Pages
             LblGenre.Text = "123";
             LblRating.Text = "4.5";
             LblLanguage.Text = "English";
-            LblDuration.Text = "15";
+            //LblDuration.Text = "15";
             LblPlayingDate.Text = "20-11-2022";
             LblPlayingTime.Text = "22:00";
             LblTicketPrice.Text = "100000" + " VNĐ";

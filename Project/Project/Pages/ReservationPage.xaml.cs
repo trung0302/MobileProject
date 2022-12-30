@@ -37,7 +37,7 @@ namespace Project.Pages
             LblGenre.Text = "123";
             LblRating.Text = "4.5";
             LblLanguage.Text = "English";
-            LblDuration.Text = "15";
+            //LblDuration.Text = "15";
             ImgMovie.Source = "posterdemosmall.jpg";
             SpanPrice.Text = SpanTotalPrice.Text = "$" + "100000";
             ticketPrice = 100000;
