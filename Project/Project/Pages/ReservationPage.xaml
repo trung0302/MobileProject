@@ -96,8 +96,8 @@
                     </StackLayout>
                     <Label x:Name="LblLanguage"
                            TextColor="White" />
-                    <Label x:Name="LblDuration"
-                           TextColor="White" />
+                    <!--<Label x:Name="LblDuration"
+                           TextColor="White" />-->
                 </StackLayout>
             </Grid>
             <Frame Margin="0,30,0,0"
@@ -107,12 +107,12 @@
                    IsClippedToBounds="True">
                 <StackLayout Spacing="0">
                     <StackLayout BackgroundColor="#131C25">
-                        <Label Text="Phone Number:"
+                        <Label Text="Số điện thoại:"
                                TextColor="White"
                                Padding="8" />
                     </StackLayout>
                     <StackLayout BackgroundColor="White">
-                        <Entry Placeholder="Provide Your Phone Number"
+                        <Entry Placeholder="Điền số điện thoại của bạn"
                                                    Keyboard="Telephone"
                                                    TextColor="Black"
                                                    x:Name="EntPhone" />
@@ -126,7 +126,7 @@
                    IsClippedToBounds="True">
                 <StackLayout Spacing="0">
                     <StackLayout BackgroundColor="#131C25">
-                        <Label Text="QTY"
+                        <Label Text="Số lượng"
                                TextColor="White"
                                Padding="8" />
                     </StackLayout>

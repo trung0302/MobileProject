@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using System.Net;
 
 namespace Project.Droid
 {
@@ -23,6 +24,7 @@ namespace Project.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            //ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
         }
     }
 }

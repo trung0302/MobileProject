@@ -21,10 +21,14 @@ namespace Project.Services
                 Email = email,
                 Password = password
             };
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            
+            //var httpClient = new HttpClient(new System.Net.Http.HttpClientHandler());
             var json = JsonConvert.SerializeObject(register);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/register", content);
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/User/Register", content);
             if (!response.IsSuccessStatusCode) return false;
             return true;
         }
@@ -36,18 +40,21 @@ namespace Project.Services
                 Email = email,
                 Password = password
             };
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            //var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(login);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/users/login", content);
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/User/Login", content);
             if (!response.IsSuccessStatusCode) return false;
             var jsonResult = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<Token>(jsonResult);
-            Preferences.Set("accessToken", result.access_token);
-            Preferences.Set("userId", result.user_id);
-            Preferences.Set("userName", result.user_Name);
-            Preferences.Set("tokenExpirationTime", result.expiration_Time);
-            Preferences.Set("currentTime", UnixTime.GetCurrentTime());
+            Preferences.Set("token", result.access_token);
+            Preferences.Set("user.id", result.user_id);
+            Preferences.Set("user.name", result.user_Name);
+            //Preferences.Set($"tokenExpirationTime", result.expiration_Time);
+            //Preferences.Set($"currentTime", UnixTime.GetCurrentTime());
             return true;
         }
 
@@ -55,8 +62,8 @@ namespace Project.Services
         {
             //await TokenValidator.CheckTokenValidity();
             var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/movies/AllMovies?pageNumber={0}&pageSize={1}", pageNumber, pageSize));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/AllMovies?pageNumber={0}&pageSize={1}", pageNumber, pageSize));
             return JsonConvert.DeserializeObject<List<Movie>>(response);
         }
 
@@ -64,18 +71,22 @@ namespace Project.Services
         public static async Task<MovieDetail> GetMovieDetail(int movieId)
         {
             //await TokenValidator.CheckTokenValidity();
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/movies/MovieDetail/" + movieId);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Movie/MovieDetail/" + movieId);
             return JsonConvert.DeserializeObject<MovieDetail>(response);
         }
 
         public static async Task<List<FindMovie>> FindMovies(string movieName)
         {
             //await TokenValidator.CheckTokenValidity();
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/movies/FindMovies?movieName=" + movieName);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Movie/FindMovies?movieName=" + movieName);
             return JsonConvert.DeserializeObject<List<FindMovie>>(response);
         }
 
@@ -83,10 +94,12 @@ namespace Project.Services
         public static async Task<bool> ReserveMovieTicket(Reservation reservation)
         {
             //await TokenValidator.CheckTokenValidity();
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
             var json = JsonConvert.SerializeObject(reservation);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/reservations", content);
             if (!response.IsSuccessStatusCode) return false;
             return true;

@@ -89,8 +89,8 @@
                                 </StackLayout>
                                 <Label x:Name="LblLanguage"
                                        TextColor="White" />
-                                <Label x:Name="LblDuration"
-                                       TextColor="White" />
+                                <!--<Label x:Name="LblDuration"
+                                       TextColor="White" />-->
                             </StackLayout>
                         </Grid>
                         <Label Text="Chi tiết:"
