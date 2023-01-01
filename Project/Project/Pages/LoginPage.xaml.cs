@@ -23,24 +23,24 @@ namespace Project.Pages
             Navigation.PopModalAsync();
         }
 
-        private async void cmdSignin_Clicked(object sender, EventArgs e)
-        {
-            var response = await ApiService.Login(EntEmail.Text, EntPassword.Text);
-            Preferences.Set("email", EntEmail.Text);
-            Preferences.Set("password", EntPassword.Text);
-            if (response)
-            {
-                Application.Current.MainPage = new MainPage();
-            }
-            else
-            {
-                await DisplayAlert("Lỗi", "Tài khoản hoặc mật khẩu không đúng! Vui lòng nhập lại...", "Hủy");
-            }
-        }
-
-        //private void cmdSignin_Clicked(object sender, EventArgs e)
+        //private async void cmdSignin_Clicked(object sender, EventArgs e)
         //{
+        //    var response = await ApiService.Login(EntEmail.Text, EntPassword.Text);
+        //    Preferences.Set("email", EntEmail.Text);
+        //    Preferences.Set("password", EntPassword.Text);
+        //    if (response)
+        //    {
         //        Application.Current.MainPage = new MainPage();
+        //    }
+        //    else
+        //    {
+        //        await DisplayAlert("Lỗi", "Tài khoản hoặc mật khẩu không đúng! Vui lòng nhập lại...", "Hủy");
+        //    }
         //}
+
+        private void cmdSignin_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage();
+        }
     }
 }

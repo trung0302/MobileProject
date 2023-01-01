@@ -67,6 +67,16 @@ namespace Project.Services
             return JsonConvert.DeserializeObject<List<Movie>>(response);
         }
 
+        public static async Task<List<Movie>> GetGenre(string genre)
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/MovieGenre?genre=" + genre));
+            return JsonConvert.DeserializeObject<List<Movie>>(response);
+        }
 
         public static async Task<MovieDetail> GetMovieDetail(int movieId)
         {

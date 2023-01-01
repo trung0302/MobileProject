@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Project.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderPage : ContentPage
+    public partial class SettingPage : ContentPage
     {
-        public OrderPage()
+        public SettingPage()
         {
             InitializeComponent();
-        }
-
-        private void ToolbarSearch_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new SearchMoviePage());
         }
     }
 }

@@ -47,5 +47,10 @@ namespace Project.Pages
         {
             Navigation.PushModalAsync(new MovieDetailPage(1));
         }
+
+        private void ToolbarSearch_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SearchMoviePage());
+        }
     }
 }

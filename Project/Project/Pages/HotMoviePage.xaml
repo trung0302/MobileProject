@@ -4,6 +4,14 @@
              x:Class="Project.Pages.HotMoviePage"
              BackgroundColor="#191a32"
              Title="Mới&amp;Hot">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+                x:Name="ToolbarSearch" 
+                IconImageSource="search.png" 
+                Order="Primary" Priority="0" 
+                Clicked="ToolbarSearch_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 
     <Shell.TitleView>
         <StackLayout>

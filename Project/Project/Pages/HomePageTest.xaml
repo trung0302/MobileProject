@@ -6,15 +6,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Project.Pages.HomePageTest"
-             BackgroundColor="#191a32"
-             Title="Trang chủ">
-
+             Title="Trang chủ"
+             BackgroundColor="#191a32">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+                x:Name="ToolbarSearch" 
+                IconImageSource="search.png" 
+                Order="Primary" Priority="0" 
+                Clicked="ToolbarSearch_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <Shell.TitleView>
         <StackLayout>
             <Label Text="Trang chủ" TextColor="White" FontSize="Title" FontAttributes="Bold"
                    HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
         </StackLayout>
     </Shell.TitleView>
+    
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
