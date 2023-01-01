@@ -99,7 +99,7 @@
                     <!--<Label x:Name="LblDuration"
                            TextColor="White" />-->
                 </StackLayout>
-            </Grid>
+            </Grid> 
             <Frame Margin="0,30,0,0"
                    CornerRadius="10"
                    HasShadow="False"

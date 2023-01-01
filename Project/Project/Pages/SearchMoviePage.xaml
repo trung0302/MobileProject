@@ -8,7 +8,7 @@
              x:Class="Project.Pages.SearchMoviePage"
              BackgroundColor="#191a32"
              Title="Tìm kiếm">
-
+   
     <Shell.TitleView>
         <StackLayout>
             <Label Text="Tìm kiếm" TextColor="White" FontSize="Title" FontAttributes="Bold"
@@ -29,7 +29,7 @@
                                HasShadow="False"
                                BackgroundColor="#191a32"
                                HorizontalOptions="FillAndExpand">
-                            <renderers:BorderlessEntry Placeholder="Tìm kiếm phim" FontSize="16" TextColor="White" 
+                            <renderers:BorderlessEntry Placeholder="Tìm kiếm phim..." FontSize="16" TextColor="White" 
                                                        PlaceholderColor="LightBlue"
                                                        x:Name="EntSearchMovie"
                                                        TextChanged="EntSearchMovie_TextChanged"/>

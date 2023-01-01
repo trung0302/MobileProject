@@ -28,9 +28,9 @@
                     <ColumnDefinition Width="5*" />
                 </Grid.ColumnDefinitions>
                 <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
-                    <!--<StackLayout.GestureRecognizers>
+                    <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </StackLayout.GestureRecognizers>-->
+                    </StackLayout.GestureRecognizers>
                     <Frame BackgroundColor="#24243b" CornerRadius="12">
                         <StackLayout Orientation="Horizontal">
                             <Image Source="settings.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>

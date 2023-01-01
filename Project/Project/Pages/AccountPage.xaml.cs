@@ -35,5 +35,10 @@ namespace Project.Pages
             Preferences.Set("tokenExpirationTime", 0);
             Application.Current.MainPage = new NavigationPage(new SignUpPage());
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SettingPage());
+        }
     }
 }
