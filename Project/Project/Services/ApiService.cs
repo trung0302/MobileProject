@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Project.Models;
+using Project.Response;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -49,12 +50,12 @@ namespace Project.Services
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/User/Login", content);
             if (!response.IsSuccessStatusCode) return false;
             var jsonResult = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Token>(jsonResult);
-            Preferences.Set("token", result.access_token);
-            Preferences.Set("user.id", result.user_id);
-            Preferences.Set("user.name", result.user_Name);
+            var result = JsonConvert.DeserializeObject<UserResponse>(jsonResult);
+            Preferences.Set("token", result.token);
+            Preferences.Set("userId", result.id);
+            Preferences.Set("userName", result.name);
             //Preferences.Set($"tokenExpirationTime", result.expiration_Time);
-            //Preferences.Set($"currentTime", UnixTime.GetCurrentTime());
+            Preferences.Set("currentTime", UnixTime.GetCurrentTime());
             return true;
         }
 
@@ -97,10 +98,11 @@ namespace Project.Services
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
             HttpClient httpClient = new HttpClient(clientHandler);
+
             var json = JsonConvert.SerializeObject(reservation);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
-            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/reservations", content);
+            var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/Reservation/Post", content);
             if (!response.IsSuccessStatusCode) return false;
             return true;
         }
