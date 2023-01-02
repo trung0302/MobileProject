@@ -8,69 +8,58 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Xamarin.Essentials.Permissions;
+using System.Diagnostics;
 
 namespace Project.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ReservationPage : ContentPage
     {
-        private int ticketPrice;
-        private int movieId;
-        //public ReservationPage(MovieDetail movie)
-        //{
-        //    InitializeComponent();
-        //    LblMovieName.Text = movie.Name;
-        //    LblGenre.Text = movie.Genre;
-        //    LblRating.Text = movie.Rating.ToString();
-        //    LblLanguage.Text = movie.Language;
-        //    LblDuration.Text = movie.Duration;
-        //    ImgMovie.Source = movie.FullImageUrl;
-        //    SpanPrice.Text = SpanTotalPrice.Text = movie.TicketPrice.ToString();
-        //    ticketPrice = movie.TicketPrice;
-        //    movieId = movie.Id;
-        //}
-
+        private double ticketPrice;
+        private string movieId;
+        private string SpanPayment;
         public ReservationPage(MovieDetail movie)
         {
             InitializeComponent();
-            LblMovieName.Text = "Doctor Strange";
-            LblGenre.Text = "123";
-            LblRating.Text = "4.5";
-            LblLanguage.Text = "English";
-            //LblDuration.Text = "15";
-            ImgMovie.Source = "posterdemosmall.jpg";
-            SpanPrice.Text = SpanTotalPrice.Text = "$" + "100000";
-            ticketPrice = 100000;
-            movieId = 1;
+            LblMovieName.Text = movie.Name;
+            LblGenre.Text = movie.Genre;
+            LblRating.Text = movie.Rating.ToString();
+            LblLanguage.Text = movie.Language;
+            LblDuration.Text = movie.Duration;
+            ImgMovie.Source = movie.FullImageUrl;
+            SpanPrice.Text = SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice);
+            ticketPrice = movie.TicketPrice;
+            movieId = movie.Id;
         }
 
         private void PickerQty_SelectedIndexChanged(object sender, EventArgs e)
         {
             var qty = PickerQty.Items[PickerQty.SelectedIndex];
             SpanQty.Text = qty;
-            int totalPrice = Convert.ToInt16(SpanQty.Text) * ticketPrice;
-            SpanTotalPrice.Text = totalPrice.ToString();
+            double totalPrice = Convert.ToDouble(SpanQty.Text) * ticketPrice;
+            SpanTotalPrice.Text = String.Format("{0:n0}", totalPrice);
         }
 
         private async void ImgReserve_Tapped(object sender, EventArgs e)
         {
             var reservation = new Reservation()
             {
-                UserId = Preferences.Get("userId", 0),
+                UserId = Preferences.Get("userId", string.Empty),
                 MovieId = movieId,
                 Phone = EntPhone.Text,
                 Qty = Convert.ToInt32(SpanQty.Text),
-                Price = Convert.ToInt32(SpanTotalPrice.Text)
+                Price = Convert.ToDouble(SpanTotalPrice.Text)
             };
 
             var response = await ApiService.ReserveMovieTicket(reservation);
             if (response)
             {
-                await DisplayAlert("", "Your ticket has been reserved", "Alright");
+                await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
             }
             else
             {
-                await DisplayAlert("Oops", "Something went wrong", "Cancel");
+                await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
             }
         }
 
@@ -79,9 +68,38 @@ namespace Project.Pages
             Navigation.PopModalAsync();
         }
 
-        private void cmdPayment_Clicked(object sender, EventArgs e)
+        private void PickerPhuongThuc_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var payment = PickerPhuongThuc.Items[PickerPhuongThuc.SelectedIndex];
+            SpanPayment = payment.ToString();
+        }   
 
+        private async void cmdPayment_Clicked(object sender, EventArgs e)
+        {
+            var UId = Guid.Parse(Preferences.Get("userId", string.Empty));
+            var uid = UId;
+            var MovieId = Guid.Parse(movieId);
+            var mvid = MovieId;
+            var reservation = new Reservation()
+            {
+                Qty = Convert.ToInt32(SpanQty.Text),
+                Price = Convert.ToDouble(SpanTotalPrice.Text),
+                Phone = EntPhone.Text,
+                PhuongThuc = SpanPayment,
+                UserId = Preferences.Get("userId", string.Empty),
+                MovieId = movieId,
+            };
+
+            var response = await ApiService.ReserveMovieTicket(reservation);
+            if (response)
+            {
+                await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
+            }
+            else
+            {
+                await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
+            }
         }
+
     }
 }

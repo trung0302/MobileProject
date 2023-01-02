@@ -16,7 +16,6 @@ namespace Project.Pages
     public partial class HotMoviePage : ContentPage
     {
         public ObservableCollection<Movie> MoviesCollection;
-        private int pageNumber = 0;
         public HotMoviePage()
         {
             InitializeComponent();
@@ -35,17 +34,17 @@ namespace Project.Pages
             //    MoviesCollection.Add(movie);
             //}
 
-            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
-            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
-            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
-            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
-            MoviesCollection.Add(new Movie { Id = 1, Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
+            MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png" });
             CvMovieDetail.ItemsSource = MoviesCollection;
         }
 
         private void ImgDetail_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new MovieDetailPage(1));
+            Navigation.PushModalAsync(new MovieDetailPage("1"));
         }
 
         private void ToolbarSearch_Clicked(object sender, EventArgs e)

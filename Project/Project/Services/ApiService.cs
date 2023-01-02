@@ -62,7 +62,9 @@ namespace Project.Services
         public static async Task<List<Movie>> GetAllMovies(int pageNumber, int pageSize)
         {
             //await TokenValidator.CheckTokenValidity();
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/AllMovies?pageNumber={0}&pageSize={1}", pageNumber, pageSize));
             return JsonConvert.DeserializeObject<List<Movie>>(response);
@@ -79,7 +81,29 @@ namespace Project.Services
             return JsonConvert.DeserializeObject<List<Movie>>(response);
         }
 
-        public static async Task<MovieDetail> GetMovieDetail(int movieId)
+        public static async Task<List<Movie>> GetAdviceFilm()
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/MovieAdvice"));
+            return JsonConvert.DeserializeObject<List<Movie>>(response);
+        }
+
+        public static async Task<List<Movie>> GetTop3()
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/GetThreeFilms"));
+            return JsonConvert.DeserializeObject<List<Movie>>(response);
+        }
+
+        public static async Task<MovieDetail> GetMovieDetail(string movieId)
         {
             //await TokenValidator.CheckTokenValidity();
             HttpClientHandler clientHandler = new HttpClientHandler();
@@ -117,6 +141,16 @@ namespace Project.Services
             return true;
         }
 
+        public static async Task<List<Order>> GetTickets(string userId)
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Reservation/GetTickets?userId=" + userId);
+            return JsonConvert.DeserializeObject<List<Order>>(response);
+        }
     }
 
     public static class TokenValidator

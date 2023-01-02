@@ -28,7 +28,6 @@ namespace Project.Pages
             //var streamInfo = streamManifest.GetMuxed().WithHighestVideoQuality();
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
 
-
             if (streamInfo != null)
             {
                 // Get the actual stream

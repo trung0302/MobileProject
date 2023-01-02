@@ -30,8 +30,8 @@
             <ScrollView>
                 <!--Slide-->
                 <StackLayout>
-                    <CarouselView x:Name="CvMoviesFilm" HorizontalOptions="FillAndExpand"
-                                  HeightRequest="450"
+                    <CarouselView x:Name="CvTop3Movies" HorizontalOptions="FillAndExpand"
+                                  HeightRequest="450" 
                                   IsScrollAnimated="True" IsSwipeEnabled="True" >
                         <!--<CarouselView.ItemsLayout>
                             <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
@@ -43,9 +43,10 @@
                                        BorderColor="DarkGray"
                                        Padding="0"
                                        HeightRequest="380"
-                                        HorizontalOptions="FillAndExpand">       
+                                       HorizontalOptions="FillAndExpand"
+                                         >
                                         <StackLayout>
-                                            <Image Source="banner.png"
+                                            <Image Source="{Binding FullImageUrl}"
                                                    Aspect="AspectFill"
                                                    HeightRequest="380"
                                                    HorizontalOptions="FillAndExpand">
@@ -55,15 +56,16 @@
                                             </Image>
                                         </StackLayout>
                                     </Frame>
-                                            <Label Text="{Binding Name}"
-                                                   FontAttributes="Bold"
-                                                    TextColor="White"
-                                                   FontSize="Large"
-                                                   HorizontalOptions="CenterAndExpand"
-                                                   VerticalOptions="Center" />
-                                            <Label Text="{Binding Language}"
-                                                   TextColor="White"
-                                                   HorizontalOptions="Center" />
+                                    <Label Text="{Binding Name}"
+                                        FontAttributes="Bold"
+                                        TextColor="White"
+                                        FontSize="Large"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="Center" />
+                                    <Label Text="{Binding Language}"
+                                        TextColor="White"
+                                        HorizontalOptions="Center" />
+                                    <Button x:Name="cmdNavigate" Text="Navigation" Clicked="cmdNavigate_Clicked" />
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
@@ -75,7 +77,7 @@
                     <StackLayout  Padding="10">
                         <!--Hiện đang thịnh hàng-->
                         <Label Text="Hiện đang thịnh hành" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
-                        <CollectionView x:Name="CvMovies" SelectionMode="Single"
+                        <CollectionView x:Name="CvTrendingMovies" SelectionMode="Single"
                                         HeightRequest="200" VerticalOptions="FillAndExpand"
                                         HorizontalScrollBarVisibility="Never"
                                         ItemsLayout="HorizontalList"
@@ -83,7 +85,7 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="0, 0, 6, 0">
-                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
+                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Transparent">
                                             <Image x:Name="Img" Aspect="AspectFill" Source="posterdemosmall.png" />
                                         </Frame>
                                     </StackLayout>
@@ -93,7 +95,7 @@
 
                         <!--Đề xuất dành cho bạn-->
                         <Label Text="Đề xuất dành cho bạn" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
-                        <CollectionView x:Name="CvMoviesDexuat" SelectionMode="Single"
+                        <CollectionView x:Name="CvDeXuatMovies" SelectionMode="Single"
                                         RemainingItemsThreshold="1"
                                         HeightRequest="200" VerticalOptions="FillAndExpand"
                                         HorizontalScrollBarVisibility="Never"
@@ -102,8 +104,8 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="0, 0, 6, 0">
-                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
-                                            <Image x:Name="Img" Aspect="AspectFill" Source="phieuluuposter.jpg" />
+                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Transparent">
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="{Binding ImageUrl}" />
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
@@ -112,16 +114,16 @@
                         
                         <!--Phim hành động-->
                         <Label Text="Phim hành động" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
-                        <CollectionView x:Name="CvMoviesHanhDong" SelectionMode="Single"
+                        <CollectionView x:Name="CvHanhDongMovies" SelectionMode="Single"
                                         HeightRequest="200" VerticalOptions="FillAndExpand"
                                         HorizontalScrollBarVisibility="Never"
                                         ItemsLayout="HorizontalList"
-                                        SelectionChanged="CvMovies_SelectionChanged">
+                                        SelectionChanged="CvHanhDongMovies_SelectionChanged">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="0, 0, 6, 0">
                                         <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
-                                            <Image x:Name="Img" Aspect="AspectFill" Source="hanhdongposter.jpg" />
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="{Binding ImageUrl}" />
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
@@ -130,16 +132,16 @@
 
                         <!--Phim kinh dị-->
                         <Label Text="Phim kinh dị" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
-                        <CollectionView x:Name="CvMoviesKinhDi" SelectionMode="Single"
+                        <CollectionView x:Name="CvKinhDiMovies" SelectionMode="Single"
                                         HeightRequest="200" VerticalOptions="FillAndExpand"
                                         HorizontalScrollBarVisibility="Never"
                                         ItemsLayout="HorizontalList"
-                                        SelectionChanged="CvMovies_SelectionChanged">
+                                        SelectionChanged="CvKinhDiMovies_SelectionChanged">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="0, 0, 6, 0">
                                         <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
-                                            <Image x:Name="Img" Aspect="AspectFill" Source="kinhdiposter.jpg" />
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="{Binding ImageUrl}" />
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
@@ -148,16 +150,34 @@
 
                         <!--Phim tình cảm-->
                         <Label Text="Phim tình cảm" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
-                        <CollectionView x:Name="CvMoviesTinhCam" SelectionMode="Single"
+                        <CollectionView x:Name="CvTinhCamMovies" SelectionMode="Single"
                                         HeightRequest="200" VerticalOptions="FillAndExpand"
                                         HorizontalScrollBarVisibility="Never"
                                         ItemsLayout="HorizontalList"
-                                        SelectionChanged="CvMovies_SelectionChanged">
+                                        SelectionChanged="CvTinhCamMovies_SelectionChanged">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="0, 0, 6, 0">
                                         <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
-                                            <Image x:Name="Img" Aspect="AspectFill" Source="tinhcamposter.jpg" />
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        
+                        <!--Phim hoạt hình-->
+                        <Label Text="Phim hoạt hình" TextColor="White" FontSize="18" FontAttributes="Bold"></Label>
+                        <CollectionView x:Name="CvHoatHinhMovies" SelectionMode="Single"
+                                        HeightRequest="200" VerticalOptions="FillAndExpand"
+                                        HorizontalScrollBarVisibility="Never"
+                                        ItemsLayout="HorizontalList"
+                                        SelectionChanged="CvHoatHinhMovies_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="0, 0, 6, 0">
+                                        <Frame HeightRequest="180" WidthRequest="100" Padding="0" HasShadow="False" CornerRadius="6" BackgroundColor="Blue">
+                                            <Image x:Name="Img" Aspect="AspectFill" Source="{Binding ImageUrl}" />
                                         </Frame>
                                     </StackLayout>
                                 </DataTemplate>
