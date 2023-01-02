@@ -7,9 +7,10 @@ namespace Project.Models
     public class Reservation
     {
         public int Qty { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public string Phone { get; set; }
-        public int MovieId { get; set; }
-        public int UserId { get; set; }
+        public string PhuongThuc { get; set; }
+        public string MovieId { get; set; }
+        public string UserId { get; set; }
     }
 }

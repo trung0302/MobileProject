@@ -45,15 +45,32 @@
             <Label Text="Email" TextColor="White" FontSize="14" />
             <renderers:NormalEntry Margin="0, -8, 0, 0"
                                        x:Name="EntEmail"
-                                       TextColor="White"
-                                       PlaceholderColor="White" />
+                                       TextColor="#979797"
+                                       FontSize="14"    
+                                       Placeholder="Nhập email"
+                                       PlaceholderColor="#979797" />
             
             <Label Text="Mật khẩu" TextColor="White" FontSize="14" />
             <renderers:NormalEntry Margin="0, -8, 0, 0"
                                        x:Name="EntPassword"
                                        IsPassword="True"
-                                       TextColor="White"
-                                       PlaceholderColor="White" />
+                                       TextColor="#979797"
+                                       FontSize="14"
+                                       Placeholder="Nhập mật khẩu"
+                                       PlaceholderColor="#979797" />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Margin="0,20,0,0">
+                <Label Text="Bạn chưa có tài khoản?" Padding="0, 12"
+                       TextColor="White" />
+                <Label Text="Đăng ký" Padding="0, 12"
+                       TextDecorations="Underline"
+                       TextColor="#2F80ED">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="LblRegister" Tapped="LblRegister_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
             <Button x:Name="cmdSignin" CornerRadius="50" Text="ĐĂNG NHẬP" FontSize="Medium" Margin="0, 40, 0, 0"
                     FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdSignin_Clicked"></Button>
         </StackLayout>

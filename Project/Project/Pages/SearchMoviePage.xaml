@@ -55,11 +55,11 @@
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="8*" />
                             </Grid.ColumnDefinitions>
-                            <Image Aspect="Fill"
+                            <Image Aspect="AspectFill"
                                    HeightRequest="100"
                                    VerticalOptions="Start"
                                    Grid.Column="0"
-                                   Source="{Binding FullImageUrl}"/>
+                                   Source="{Binding ImageUrl}"/>
                             <Label FontSize="Medium"
                                    Grid.Column="1"
                                    TextColor="White"

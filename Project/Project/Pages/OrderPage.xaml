@@ -20,40 +20,76 @@
                    HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
         </StackLayout>
     </Shell.TitleView>
-    
+
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listfilm">
-                <ListView.ItemTemplate>
+            <CollectionView x:Name="CvTickets">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Span="1"
+                                     Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
+                        <StackLayout Padding="10">
+                            <Grid ColumnSpacing="0" RowSpacing="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2.8*" />
+                                    <ColumnDefinition Width="8*" />
                                 </Grid.ColumnDefinitions>
-                                
-                                <!--Test chua Binding theo api-->
-                                <Image Source="{Binding ImageUrl}"
-                                       Grid.Row="0"
+                                <Image Aspect="AspectFill"
+                                       HeightRequest="140"
+                                       VerticalOptions="Start"
                                        Grid.Column="0"
-                                       Grid.RowSpan="2"></Image>
-                                <Label Text="{Binding Name}"
-                                       Grid.Row="0"
-                                       Grid.Column="1"></Label>
-                                <Label Text="{Binding PlayingDate}"
-                                       Grid.Row="1"
-                                       Grid.Column="1"></Label>
+                                       Source="{Binding ImageUrl}" />
+                                <StackLayout Grid.Column="1" BackgroundColor="White">
+                                    <Label FontSize="20"
+                                           Text="{Binding Name}"
+                                           Grid.Column="1"
+                                           Grid.Row="0"
+                                           TextColor="#ec2f26"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="CenterAndExpand" />
+                                    <StackLayout Orientation="Horizontal" Padding="8, 0" >
+                                        <Label Text="Ngày chiếu: " FontSize="16"
+                                                   TextColor="Black" />
+                                        <Label x:Name="LblPlayingDate" FontSize="16" Text="{Binding PlayingDate}"
+                                               TextColor="Black" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="8, 0" >
+                                        <Label Text="Giờ chiếu: " FontSize="16"
+                                                   TextColor="Black" />
+                                        <Label x:Name="LblPlayingTime" FontSize="16" Text="{Binding PlayingTime}"
+                                               TextColor="Black" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="8, 0" >
+                                        <Label Text="Thời lượng: " FontSize="16"
+                                                   TextColor="Black" />
+                                        <Label x:Name="LblDuration" FontSize="16" Text="{Binding Duration}"
+                                               TextColor="Black" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="39">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="Số lượng: " FontSize="16"
+                                                       TextColor="Black" />
+                                            <Label x:Name="LblQuantity" FontSize="16" Text="{Binding Quantity}"
+                                                   TextColor="Black" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="Giá: " FontSize="16"
+                                                       TextColor="Black" />
+                                            <Label x:Name="LblPrice" FontSize="16" Text="{Binding Price}"
+                                                   TextColor="Black" />
+                                            <Label Text="VNĐ" FontSize="16"
+                                                       TextColor="Black" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
                             </Grid>
 
-                        </ViewCell>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

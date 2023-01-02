@@ -14,7 +14,7 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Image x:Name="ImgMovie"
+                    <Image x:Name="ImgMovieCover"   
                            Aspect="AspectFill"
                            HeightRequest="350" />
                     <BoxView BackgroundColor="Black"
@@ -56,7 +56,7 @@
                             <Frame  Grid.Column="0"
                                     CornerRadius="20"
                                     Padding="0">
-                                <Image x:Name="ImgMovieCover"
+                                <Image x:Name="ImgMovie"
                                        Aspect="AspectFill"
                                        HeightRequest="200"
                                        VerticalOptions="Start" />
@@ -87,10 +87,18 @@
                                            HeightRequest="20"
                                            WidthRequest="20" />
                                 </StackLayout>
-                                <Label x:Name="LblLanguage"
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nguồn gốc: "
+                                           TextColor="White" />
+                                    <Label x:Name="LblLanguage"
                                        TextColor="White" />
-                                <!--<Label x:Name="LblDuration"
-                                       TextColor="White" />-->
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Thời lượng: "
+                                           TextColor="White" />
+                                    <Label x:Name="LblDuration"
+                                       TextColor="White" />
+                                </StackLayout>
                             </StackLayout>
                         </Grid>
                         <Label Text="Chi tiết:"

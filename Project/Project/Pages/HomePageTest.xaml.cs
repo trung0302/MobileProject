@@ -21,7 +21,10 @@ namespace Project.Pages
         public ObservableCollection<Movie> hanhdongMoviesCollection;
         public ObservableCollection<Movie> tinhcamMoviesCollection;
         public ObservableCollection<Movie> hoathinhMoviesCollection;
-        private int pageNumber = 0;
+        public ObservableCollection<Movie> trendingMoviesCollection;
+        public ObservableCollection<Movie> dexuatMoviesCollection;
+        public ObservableCollection<Movie> top3MoviesCollection;
+
         public HomePageTest()
         {
             InitializeComponent();
@@ -30,9 +33,13 @@ namespace Project.Pages
             hanhdongMoviesCollection = new ObservableCollection<Movie>();
             tinhcamMoviesCollection = new ObservableCollection<Movie>();
             hoathinhMoviesCollection = new ObservableCollection<Movie>();
+            trendingMoviesCollection = new ObservableCollection<Movie>();
+            dexuatMoviesCollection = new ObservableCollection<Movie>();
+            top3MoviesCollection = new ObservableCollection<Movie>();
            
+            GetTop3();
+            GetAdviceFilm();
             GetGenre();
-
         }
 
         //private void GetMovies()
@@ -76,31 +83,31 @@ namespace Project.Pages
             var tinhcamMovies = await ApiService.GetGenre("tinhcam");
             var hoathinhMovies = await ApiService.GetGenre("hoathinh");
 
-            foreach (var genre in kinhdiMovies)
+            foreach (var movie in kinhdiMovies)
             {
-                kinhdiMovies.Add(genre);
+                kinhdiMoviesCollection.Add(movie);
             }
-            CvMovies.ItemsSource = kinhdiMoviesCollection; 
+            CvKinhDiMovies.ItemsSource = kinhdiMoviesCollection; 
             
-            foreach (var genre in hanhdongMovies)
+            foreach (var movie in hanhdongMovies)
             {
-                hanhdongMovies.Add(genre);
+                hanhdongMoviesCollection.Add(movie);
             }
 
-            CvMovies.ItemsSource = hanhdongMoviesCollection;
+            CvHanhDongMovies.ItemsSource = hanhdongMoviesCollection;
 
-            foreach (var genre in tinhcamMovies)
+            foreach (var movie in tinhcamMovies)
             {
-                tinhcamMovies.Add(genre);
+                tinhcamMoviesCollection.Add(movie);
             }
 
-            CvMovies.ItemsSource = tinhcamMoviesCollection;
+            CvTinhCamMovies.ItemsSource = tinhcamMoviesCollection;
 
-            foreach (var genre in hoathinhMovies)
+            foreach (var movie in hoathinhMovies)
             {
-                hoathinhMovies.Add(genre);
+                hoathinhMoviesCollection.Add(movie);
             }
-            CvMovies.ItemsSource = hoathinhMoviesCollection;
+            CvHoatHinhMovies.ItemsSource = hoathinhMoviesCollection;
 
 
 
@@ -116,32 +123,111 @@ namespace Project.Pages
         //        CloseHamBurgerMenu();
         //    }
 
+        private async void GetTop3()
+        {
+            var top3Movies = await ApiService.GetTop3();
+
+            foreach (var movie in top3Movies)
+            {
+                top3MoviesCollection.Add(movie);
+            }
+            CvTop3Movies.ItemsSource = top3MoviesCollection;
+            Device.StartTimer(TimeSpan.FromSeconds(5), (Func<bool>)(() =>
+            {
+                //CvMoviesFilm.Position = (CvMoviesFilm.Position + 1) % indicatorView.Count;
+                if (CvTop3Movies.Position == top3MoviesCollection.ToList().Count() - 1)
+                {
+                    CvTop3Movies.Position = 0;
+                }
+                else
+                {
+                    CvTop3Movies.Position = (CvTop3Movies.Position + 1);
+
+                }
+                return true;
+            }));
+        }
+
+        private async void GetAdviceFilm()
+        {
+            var Movies = await ApiService.GetAdviceFilm();
+
+            foreach (var movie in Movies)
+            {
+                dexuatMoviesCollection.Add(movie);
+            }
+            CvDeXuatMovies.ItemsSource = dexuatMoviesCollection;
+        }
+
         private void CvMovies_RemainingItemsThresholdReached(object sender, EventArgs e)
         {
             GetGenre();
         }
 
-        //private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
-        //    if (currentSelection == null) return;
-        //    Navigation.PushModalAsync(new MovieDetailPage(currentSelection.Id));
-        //    ((CollectionView)sender).SelectedItem = null;
-        //}
         private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Navigation.PushModalAsync(new MovieDetailPage(1));
+            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+            if (currentSelection == null) return;
+            Navigation.PushModalAsync(new MovieDetailPage(currentSelection.Id));
             ((CollectionView)sender).SelectedItem = null;
         }
 
+        //private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    Navigation.PushModalAsync(new MovieDetailPage(1));
+        //    ((CollectionView)sender).SelectedItem = null;
+        //}
+
         private void ImgDetail_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new MovieDetailPage(1));
+            //var button = sender as Button;
+            //var model = e. as Movie;
+            //Navigation.PushModalAsync(new MovieDetailPage(model.Id));
         }
 
         private void ToolbarSearch_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SearchMoviePage());
+        }
+
+        private void CvHanhDongMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+            if (currentSelection == null) return;
+            Navigation.PushAsync(new MovieDetailPage(currentSelection.Id));
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+        private void CvKinhDiMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+            if (currentSelection == null) return;
+            Navigation.PushAsync(new MovieDetailPage(currentSelection.Id));
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+        private void CvTinhCamMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+            if (currentSelection == null) return;
+            Navigation.PushAsync(new MovieDetailPage(currentSelection.Id));
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+        private void CvHoatHinhMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentSelection = e.CurrentSelection.FirstOrDefault() as Movie;
+            if (currentSelection == null) return;
+            Navigation.PushAsync(new MovieDetailPage(currentSelection.Id));
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+        private void cmdNavigate_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button; 
+            var model = button.BindingContext as Movie;
+
+            Navigation.PushModalAsync(new MovieDetailPage(model.Id));
         }
 
         //-------------------------------------------------

@@ -6,9 +6,9 @@ namespace Project.Models
 {
     public class FindMovie
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
-        public string FullImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         //public string FullImageUrl => AppSettings.ApiUrl + ImageUrl;
     }
 }
