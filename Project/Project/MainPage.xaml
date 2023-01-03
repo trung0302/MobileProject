@@ -20,11 +20,14 @@
         <Tab Icon="home.png" Title="Trang chủ" >
             <ShellContent ContentTemplate="{DataTemplate pages:HomePageTest}" />
         </Tab>
-        <Tab Icon="historyIcon.png" Title="Lịch sử" >
+        <Tab Icon="history.png" Title="Lịch sử" >
             <ShellContent ContentTemplate="{DataTemplate pages:OrderPage}" />
         </Tab>
         <Tab Icon="movie.png" Title="Mới&amp;Hot">
             <ShellContent ContentTemplate="{DataTemplate pages:HotMoviePage}" />
+        </Tab>
+        <Tab Icon="storeicon.png" Title="Rạp phim">
+            <ShellContent ContentTemplate="{DataTemplate pages:TheaterPage}" />
         </Tab>
         <Tab Icon="account1.png" Title="Tài khoản">
             <ShellContent ContentTemplate="{DataTemplate pages:AccountPage}" />

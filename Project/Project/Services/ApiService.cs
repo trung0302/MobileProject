@@ -54,9 +54,44 @@ namespace Project.Services
             Preferences.Set("token", result.token);
             Preferences.Set("userId", result.id);
             Preferences.Set("userName", result.name);
+            Preferences.Set("password", result.password);
             //Preferences.Set($"tokenExpirationTime", result.expiration_Time);
             Preferences.Set("currentTime", UnixTime.GetCurrentTime());
             return true;
+        }
+
+        public static async Task<bool> UpdateUser(string name, string password)
+        {
+            var newUser = new UpdateUser()
+            {
+                Name = name,
+                Password = password
+            };
+            var userId = Preferences.Get("userId", string.Empty);
+
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            //var httpClient = new HttpClient();
+
+            var json = JsonConvert.SerializeObject(newUser);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.PutAsync(AppSettings.ApiUrl + "api/User/" + userId, content);
+            if (!response.IsSuccessStatusCode) return false;
+            return true;
+        }
+
+        public static async Task<User> GetUser(string id)
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/User/GetUserById/" + id));
+            return JsonConvert.DeserializeObject<User>(response);
         }
 
         public static async Task<List<Movie>> GetAllMovies(int pageNumber, int pageSize)
@@ -90,6 +125,28 @@ namespace Project.Services
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/MovieAdvice"));
             return JsonConvert.DeserializeObject<List<Movie>>(response);
+        }
+
+        public static async Task<List<Movie>> GetRatingFilm()
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Movie/MovieRating"));
+            return JsonConvert.DeserializeObject<List<Movie>>(response);
+        }
+
+        public static async Task<List<Theater>> GetTheaters()
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Theater/GetAllTheaters"));
+            return JsonConvert.DeserializeObject<List<Theater>>(response);
         }
 
         public static async Task<List<Movie>> GetTop3()
