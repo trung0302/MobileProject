@@ -76,10 +76,6 @@ namespace Project.Pages
 
         private async void cmdPayment_Clicked(object sender, EventArgs e)
         {
-            var UId = Guid.Parse(Preferences.Get("userId", string.Empty));
-            var uid = UId;
-            var MovieId = Guid.Parse(movieId);
-            var mvid = MovieId;
             var reservation = new Reservation()
             {
                 Qty = Convert.ToInt32(SpanQty.Text),

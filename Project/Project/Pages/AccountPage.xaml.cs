@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,17 @@ namespace Project.Pages
         public AccountPage()
         {
             InitializeComponent();
-            LblUserName.Text = Preferences.Get("userName", string.Empty);
+
+            GetUserName();
+        }
+
+        public async void GetUserName()
+        {
+            var id = Preferences.Get("userId", string.Empty);
+            var user = await ApiService.GetUser(id);
+
+            //LblUserName.Text = Preferences.Get("userName", string.Empty);
+            LblUserName.Text = user.Name;
         }
 
         private void TapGestureRecognizer_Tapped_About(object sender, EventArgs e)
@@ -39,6 +50,12 @@ namespace Project.Pages
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SettingPage());
+        }
+
+        private async void myRefreshView_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(1000);
+            myRefreshView.IsRefreshing = false;
         }
     }
 }

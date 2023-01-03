@@ -11,68 +11,73 @@
         </StackLayout>
     </Shell.TitleView>
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" Padding="10, 40">
-            <Image Source="clipped.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
-            <Label x:Name="LblUserName" FontSize="24" TextColor="#20a0e7" FontAttributes="Bold" Margin="0, 24, 0, 12"
+        <RefreshView x:Name="myRefreshView" RefreshColor="White" Refreshing="myRefreshView_Refreshing">
+            <ScrollView>
+                <StackLayout HorizontalOptions="CenterAndExpand" Padding="10, 40">
+                <Image Source="clipped.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
+                <Label x:Name="LblUserName" FontSize="24" TextColor="#20a0e7" FontAttributes="Bold" Margin="0, 24, 0, 12"
                    HorizontalOptions="CenterAndExpand"/>
 
-            <Grid Padding="24">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="5*" />
-                </Grid.ColumnDefinitions>
-                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Frame BackgroundColor="#24243b" CornerRadius="12">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="settings.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
-                            <Label Text="Cài đặt" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="0" Grid.Column="1"/>
-                        </StackLayout>
-                    </Frame>    
-                </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_About"/>
-                    </StackLayout.GestureRecognizers>
-                    <Frame BackgroundColor="#24243b" >
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="about.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="1" Grid.Column="0"/>
-                            <Label Text="Về ứng dụng" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="1" Grid.Column="1"/>
-                        </StackLayout>
-                    </Frame>    
-                </StackLayout>
-                <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Contact" />
-                    </StackLayout.GestureRecognizers>
-                    <Frame BackgroundColor="#24243b ">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="contact.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="2" Grid.Column="0"/>
-                            <Label Text="Liên hệ với chúng tôi" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="2" Grid.Column="1"/>
-                        </StackLayout>
-                    </Frame>    
-                </StackLayout>
-                <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_LogOut"/>
-                    </StackLayout.GestureRecognizers>
-                    <Frame BackgroundColor="#24243b" CornerRadius="12">
-                        <StackLayout Orientation="Horizontal">
-                            <Image Source="logout.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="3" Grid.Column="0"/>
-                            <Label Text="Đăng xuất" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="3" Grid.Column="1"/>
-                        </StackLayout>
-                    </Frame>    
-                </StackLayout>
+                <Grid Padding="24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame BackgroundColor="#24243b" CornerRadius="12">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="edit.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="Cập nhật tài khoản" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="0" Grid.Column="1"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_About"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame BackgroundColor="#24243b" >
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="about.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="Về ứng dụng" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="1" Grid.Column="1"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Contact" />
+                        </StackLayout.GestureRecognizers>
+                        <Frame BackgroundColor="#24243b ">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="contact.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="Liên hệ với chúng tôi" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="2" Grid.Column="1"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Padding="0, 10" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_LogOut"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame BackgroundColor="#24243b" CornerRadius="12">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="logout.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="Đăng xuất" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="3" Grid.Column="1"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
                 
-            </Grid>
-        </StackLayout>
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

@@ -10,11 +10,21 @@ using Xamarin.Forms.Xaml;
 namespace Project.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchPage : ContentPage
+    public partial class TheaterPage : ContentPage
     {
-        public SearchPage()
+        public TheaterPage()
         {
             InitializeComponent();
+        }
+
+        private void EntSearchTheater_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CvTheaters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

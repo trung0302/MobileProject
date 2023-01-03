@@ -8,8 +8,7 @@
              x:Class="Project.Pages.LoginPage"
              BackgroundColor="#191a32">
     <ContentPage.Content>
-        <StackLayout Margin="20"
-                     Spacing="15">
+        <StackLayout Margin="20" Spacing="15">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
