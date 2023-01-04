@@ -19,6 +19,7 @@ namespace Project.Pages
         private double ticketPrice;
         private string movieId;
         private string SpanPayment;
+        private string SpanTheater;
         public ReservationPage(MovieDetail movie)
         {
             InitializeComponent();
@@ -73,19 +74,27 @@ namespace Project.Pages
             var payment = PickerPhuongThuc.Items[PickerPhuongThuc.SelectedIndex];
             SpanPayment = payment.ToString();
         }   
+        private void PickerTheater_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var theater = PickerTheater.Items[PickerTheater.SelectedIndex];
+            SpanTheater = theater.ToString();
+        }
 
         private async void cmdPayment_Clicked(object sender, EventArgs e)
         {
+            var a = Convert.ToInt32(SpanQty.Text);
+            var b = SpanTheater;
             var reservation = new Reservation()
             {
                 Qty = Convert.ToInt32(SpanQty.Text),
                 Price = Convert.ToDouble(SpanTotalPrice.Text),
                 Phone = EntPhone.Text,
                 PhuongThuc = SpanPayment,
+                Theater = SpanTheater,
                 UserId = Preferences.Get("userId", string.Empty),
                 MovieId = movieId,
             };
-
+            
             var response = await ApiService.ReserveMovieTicket(reservation);
             if (response)
             {

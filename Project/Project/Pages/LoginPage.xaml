@@ -15,14 +15,6 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Source="backicon.png"
-                       HorizontalOptions="Start"
-                       Grid.Column="0"
-                       Aspect="AspectFit">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="ImgBack" Tapped="ImgBack_Tapped"/>
-                    </Image.GestureRecognizers>
-                </Image>
                 <Label Text="ĐĂNG NHẬP"
                        TextColor="White"
                        VerticalOptions="Start"

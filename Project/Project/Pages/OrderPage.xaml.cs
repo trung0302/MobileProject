@@ -40,12 +40,19 @@ namespace Project.Pages
             {
                 MoviesCollection.Add(movie);
             }
-            CvTickets.ItemsSource = MoviesCollection;
+            //CvTickets.ItemsSource = MoviesCollection;
+            CvTickets.ItemsSource = movies;
         }
         private void ToolbarSearch_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SearchMoviePage());
         }
 
+        private async void MyRefreshView_Refreshing(object sender, EventArgs e)
+        {
+            GetTicket();
+            await Task.Delay(500);
+            MyRefreshView.IsRefreshing = false;
+        }
     }
 }

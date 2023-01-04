@@ -8,13 +8,6 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Margin="20" Spacing="15">
-                <Label Text="Tên tài khoản" TextColor="White" FontSize="14" />
-                <renderers:NormalEntry Margin="0, -8, 0, 0"
-                                       x:Name="EntName"
-                                       TextColor="#979797"
-                                       FontSize="14"    
-                                       PlaceholderColor="#979797" />
-
                 <Label Text="Nhập mật khẩu hiện tại" TextColor="White" FontSize="14" />
                 <renderers:NormalEntry Margin="0, -8, 0, 0"
                                        x:Name="EntCurrentPassword"

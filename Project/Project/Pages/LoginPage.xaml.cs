@@ -18,11 +18,6 @@ namespace Project.Pages
             InitializeComponent();
         }
 
-        private void ImgBack_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PopModalAsync();
-        }
-
         private async void cmdSignin_Clicked(object sender, EventArgs e)
         {
             var response = await ApiService.Login(EntEmail.Text, EntPassword.Text);
