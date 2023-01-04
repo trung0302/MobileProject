@@ -11,14 +11,27 @@
         </StackLayout>
     </Shell.TitleView>
     <ContentPage.Content>
-        <RefreshView x:Name="myRefreshView" RefreshColor="White" Refreshing="myRefreshView_Refreshing">
+        <RefreshView x:Name="myRefreshView" RefreshColor="DodgerBlue" Refreshing="myRefreshView_Refreshing">
             <ScrollView>
                 <StackLayout HorizontalOptions="CenterAndExpand" Padding="10, 40">
-                <Image Source="clipped.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
-                <Label x:Name="LblUserName" FontSize="24" TextColor="#20a0e7" FontAttributes="Bold" Margin="0, 24, 0, 12"
-                   HorizontalOptions="CenterAndExpand"/>
+                    <Image Source="clipped.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label x:Name="LblUserName" FontSize="24" TextColor="#20a0e7" FontAttributes="Bold" Margin="30, 24, 12, 12"
+                               HorizontalOptions="CenterAndExpand"/>
+                        <!--<Image Source="fix.png" Aspect="AspectFit" WidthRequest="20" BackgroundColor="AliceBlue" Margin="12, 12, -28, 0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="ImgEdit" Tapped="ImgEdit_Tapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>-->
+                        <ImageButton x:Name="cmdClick" Source="fix.png" WidthRequest="24"
+                                     Aspect="AspectFit" BackgroundColor="Transparent"
+                                     Margin="0, 12, 0, 0"
+                                     Clicked="cmdClick_Clicked">
+                            
+                        </ImageButton>
+                    </StackLayout>
 
-                <Grid Padding="24">
+                    <Grid Padding="24">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
@@ -36,7 +49,7 @@
                         <Frame BackgroundColor="#24243b" CornerRadius="12">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="edit.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="Cập nhật tài khoản" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="Đổi mật khẩu" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="0" Grid.Column="1"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>
@@ -75,8 +88,7 @@
                     </StackLayout>
 
                 </Grid>
-            </StackLayout>
-                
+                </StackLayout>
             </ScrollView>
         </RefreshView>
     </ContentPage.Content>

@@ -23,13 +23,13 @@
         <Tab Icon="history.png" Title="Lịch sử" >
             <ShellContent ContentTemplate="{DataTemplate pages:OrderPage}" />
         </Tab>
-        <Tab Icon="movie.png" Title="Mới&amp;Hot">
+        <Tab Icon="mv.png" Title="Mới&amp;Hot">
             <ShellContent ContentTemplate="{DataTemplate pages:HotMoviePage}" />
         </Tab>
-        <Tab Icon="storeicon.png" Title="Rạp phim">
+        <Tab Icon="store.png" Title="Rạp phim">
             <ShellContent ContentTemplate="{DataTemplate pages:TheaterPage}" />
         </Tab>
-        <Tab Icon="account1.png" Title="Tài khoản">
+        <Tab Icon="user.png" Title="Tài khoản">
             <ShellContent ContentTemplate="{DataTemplate pages:AccountPage}" />
         </Tab> 
         

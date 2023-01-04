@@ -14,6 +14,7 @@ namespace Project.Services
 {
     public static class ApiService
     {
+        //User
         public static async Task<bool> RegisterUser(string name, string email, string password)
         {
             var register = new Register()
@@ -94,6 +95,8 @@ namespace Project.Services
             return JsonConvert.DeserializeObject<User>(response);
         }
 
+        //Movie
+
         public static async Task<List<Movie>> GetAllMovies(int pageNumber, int pageSize)
         {
             //await TokenValidator.CheckTokenValidity();
@@ -138,17 +141,6 @@ namespace Project.Services
             return JsonConvert.DeserializeObject<List<Movie>>(response);
         }
 
-        public static async Task<List<Theater>> GetTheaters()
-        {
-            //await TokenValidator.CheckTokenValidity();
-            HttpClientHandler clientHandler = new HttpClientHandler();
-            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            HttpClient httpClient = new HttpClient(clientHandler);
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
-            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Theater/GetAllTheaters"));
-            return JsonConvert.DeserializeObject<List<Theater>>(response);
-        }
-
         public static async Task<List<Movie>> GetTop3()
         {
             //await TokenValidator.CheckTokenValidity();
@@ -182,7 +174,30 @@ namespace Project.Services
             return JsonConvert.DeserializeObject<List<FindMovie>>(response);
         }
 
+        //Theater
+        public static async Task<List<Theater>> GetTheaters()
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + String.Format("api/Theater/GetAllTheaters"));
+            return JsonConvert.DeserializeObject<List<Theater>>(response);
+        }
 
+        public static async Task<List<Theater>> FindTheaters(string theaterName)
+        {
+            //await TokenValidator.CheckTokenValidity();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("token", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Theater/FindTheaters?name=" + theaterName);
+            return JsonConvert.DeserializeObject<List<Theater>>(response);
+        }
+
+        //Reservation
         public static async Task<bool> ReserveMovieTicket(Reservation reservation)
         {
             //await TokenValidator.CheckTokenValidity();

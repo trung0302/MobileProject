@@ -217,7 +217,34 @@
                     </StackLayout>
                 </Frame>
 
-            <Frame Margin="0,30,0,0"
+                <Frame Margin="0,30,0,0"
+                   CornerRadius="10"
+                   HasShadow="False"
+                   Padding="0"
+                   IsClippedToBounds="True">
+                    <StackLayout Spacing="0">
+                        <StackLayout BackgroundColor="#131C25">
+                            <Label Text="Rạp phim"
+                               TextColor="White"
+                               Padding="8" />
+                        </StackLayout>
+                        <StackLayout BackgroundColor="White">
+                            <renderers:BorderlessPicker  Margin="10"
+                                                     Title="Chọn rạp phim"
+                                                     TextColor="Black"
+                                                     x:Name="PickerTheater"
+                                                     SelectedIndexChanged="PickerTheater_SelectedIndexChanged">
+                                <renderers:BorderlessPicker.Items>
+                                    <x:String>CGV</x:String>
+                                    <x:String>Lotte</x:String>
+                                </renderers:BorderlessPicker.Items>
+                                <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
+                            </renderers:BorderlessPicker>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Margin="0,30,0,0"
                    CornerRadius="10"
                    HasShadow="False"
                    Padding="0"
@@ -242,7 +269,7 @@
                             </renderers:BorderlessPicker>
                         </StackLayout>
                     </StackLayout>
-                </Frame>
+            </Frame>
             
                 <Button x:Name="cmdPayment" Text="THANH TOÁN" FontSize="Medium" Margin="0, 40, 0, 20" CornerRadius="30"
                  FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdPayment_Clicked" ></Button>

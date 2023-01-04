@@ -88,7 +88,7 @@
                                            WidthRequest="20" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="Nguồn gốc: "
+                                    <Label Text="Ngôn ngữ: "
                                            TextColor="White" />
                                     <Label x:Name="LblLanguage"
                                        TextColor="White" />

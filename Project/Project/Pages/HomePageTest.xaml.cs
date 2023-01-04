@@ -17,24 +17,17 @@ namespace Project.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePageTest : ContentPage
     {
-        public ObservableCollection<Movie> kinhdiMoviesCollection;
-        public ObservableCollection<Movie> hanhdongMoviesCollection;
-        public ObservableCollection<Movie> tinhcamMoviesCollection;
-        public ObservableCollection<Movie> hoathinhMoviesCollection;
-        public ObservableCollection<Movie> ratingMoviesCollection;
-        public ObservableCollection<Movie> dexuatMoviesCollection;
+        //public ObservableCollection<Movie> kinhdiMoviesCollection;
+        //public ObservableCollection<Movie> hanhdongMoviesCollection;
+        //public ObservableCollection<Movie> tinhcamMoviesCollection;
+        //public ObservableCollection<Movie> hoathinhMoviesCollection;
+        //public ObservableCollection<Movie> ratingMoviesCollection;
+        //public ObservableCollection<Movie> dexuatMoviesCollection;
         public ObservableCollection<Movie> top3MoviesCollection;
 
         public HomePageTest()
         {
             InitializeComponent();
-            //LblUserName.Text = Preferences.Get("userName", string.Empty);
-            kinhdiMoviesCollection = new ObservableCollection<Movie>();
-            hanhdongMoviesCollection = new ObservableCollection<Movie>();
-            tinhcamMoviesCollection = new ObservableCollection<Movie>();
-            hoathinhMoviesCollection = new ObservableCollection<Movie>();
-            ratingMoviesCollection = new ObservableCollection<Movie>();
-            dexuatMoviesCollection = new ObservableCollection<Movie>();
             top3MoviesCollection = new ObservableCollection<Movie>();
            
             GetTop3();
@@ -84,31 +77,10 @@ namespace Project.Pages
             var tinhcamMovies = await ApiService.GetGenre("tinhcam");
             var hoathinhMovies = await ApiService.GetGenre("hoathinh");
 
-            foreach (var movie in kinhdiMovies)
-            {
-                kinhdiMoviesCollection.Add(movie);
-            }
-            CvKinhDiMovies.ItemsSource = kinhdiMoviesCollection; 
-            
-            foreach (var movie in hanhdongMovies)
-            {
-                hanhdongMoviesCollection.Add(movie);
-            }
-
-            CvHanhDongMovies.ItemsSource = hanhdongMoviesCollection;
-
-            foreach (var movie in tinhcamMovies)
-            {
-                tinhcamMoviesCollection.Add(movie);
-            }
-
-            CvTinhCamMovies.ItemsSource = tinhcamMoviesCollection;
-
-            foreach (var movie in hoathinhMovies)
-            {
-                hoathinhMoviesCollection.Add(movie);
-            }
-            CvHoatHinhMovies.ItemsSource = hoathinhMoviesCollection;
+            CvKinhDiMovies.ItemsSource = kinhdiMovies;
+            CvHanhDongMovies.ItemsSource = hanhdongMovies;
+            CvTinhCamMovies.ItemsSource = tinhcamMovies;
+            CvHoatHinhMovies.ItemsSource = hoathinhMovies;
 
         }
 
@@ -140,23 +112,13 @@ namespace Project.Pages
         private async void GetAdviceFilm()
         {
             var Movies = await ApiService.GetAdviceFilm();
-
-            foreach (var movie in Movies)
-            {
-                dexuatMoviesCollection.Add(movie);
-            }
-            CvDeXuatMovies.ItemsSource = dexuatMoviesCollection;
+            CvDeXuatMovies.ItemsSource = Movies;
         }
 
         private async void GetRatingFilm()
         {
             var Movies = await ApiService.GetRatingFilm();
-
-            foreach (var movie in Movies)
-            {
-                ratingMoviesCollection.Add(movie);
-            }
-            CvRatingMovies.ItemsSource = ratingMoviesCollection;
+            CvRatingMovies.ItemsSource = Movies;
         }
 
         private void CvMovies_RemainingItemsThresholdReached(object sender, EventArgs e)

@@ -26,7 +26,7 @@ namespace Project.Pages
                 var accessToken = Preferences.Get("accessToken", string.Empty);
                 if (string.IsNullOrEmpty(accessToken))
                 {
-                   Application.Current.MainPage =  new SignUpPage();
+                   Application.Current.MainPage =  new LoginPage();
                 }
                 else
                 {

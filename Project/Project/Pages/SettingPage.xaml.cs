@@ -14,10 +14,12 @@ namespace Project.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingPage : ContentPage
     {
+        private string username;
         public SettingPage()
         {
             InitializeComponent();
-            EntName.Text = Preferences.Get("userName", string.Empty);
+            //EntName.Text = Preferences.Get("userName", string.Empty);
+            username = Preferences.Get("userName", string.Empty);
             EntCurrentPassword.Text = "";
             EntNewPassword.Text = "";
         }
@@ -28,9 +30,10 @@ namespace Project.Pages
             var pass = BCrypt.Net.BCrypt.HashPassword(EntCurrentPassword.Text);
             var c = pass;
             var d = currentPass;
-            if (!string.IsNullOrEmpty(EntName.Text) 
-                && !string.IsNullOrEmpty(EntCurrentPassword.Text)
-                && !string.IsNullOrEmpty(EntNewPassword.Text))
+            if (!string.IsNullOrEmpty(EntCurrentPassword.Text)
+                && !string.IsNullOrEmpty(EntNewPassword.Text)
+                && !string.IsNullOrWhiteSpace(EntCurrentPassword.Text)
+                && !string.IsNullOrWhiteSpace(EntNewPassword.Text))
             {
                 if (EntCurrentPassword.Text != currentPass)
                 {
@@ -40,7 +43,7 @@ namespace Project.Pages
                 {
                     if (EntNewPassword.Text != currentPass)
                     {
-                        var response = await ApiService.UpdateUser(EntName.Text, EntNewPassword.Text);
+                        var response = await ApiService.UpdateUser(username, EntNewPassword.Text);
                         if (response)
                         {
                             await DisplayAlert("Thông báo", "Bạn đã cập nhật tài khoản thành công!", "Đồng ý");

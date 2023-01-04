@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:renderers="clr-namespace:Project.Renderers"
+             x:Class="Project.Pages.UpdateNamePage"
+             Title="Cập nhật tên tài khoản"
+             BackgroundColor="#191a32">
+    <ContentPage.Content>
+        <StackLayout Margin="20, 40" Spacing="15">
+            <Label Text="Tên tài khoản" TextColor="White" FontSize="14" />
+                <renderers:NormalEntry Margin="0, -8, 0, 0"
+                                       x:Name="EntName"
+                                       TextColor="#979797"
+                                       FontSize="14"    
+                                       PlaceholderColor="#979797" />
+            <Button x:Name="cmdUpdate" CornerRadius="50" Text="CẬP NHẬT" FontSize="Medium" Margin="0, 40, 0, 0"
+                    FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdUpdate_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

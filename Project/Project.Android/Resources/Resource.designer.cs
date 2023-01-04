@@ -24904,7 +24904,7 @@ namespace Project.Droid
 			public const int filmdemo = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int hanhdongposter = 2131165327;
+			public const int fix = 2131165327;
 			
 			// aapt resource value: 0x7F070090
 			public const int history = 2131165328;
@@ -24985,10 +24985,10 @@ namespace Project.Droid
 			public const int material_ic_menu_arrow_up_black_24dp = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int menuicon = 2131165354;
+			public const int movie = 2131165354;
 			
 			// aapt resource value: 0x7F0700AB
-			public const int movie = 2131165355;
+			public const int movie1 = 2131165355;
 			
 			// aapt resource value: 0x7F0700AC
 			public const int mtrl_dialog_background = 2131165356;
@@ -25021,100 +25021,100 @@ namespace Project.Droid
 			public const int mtrl_tabs_default_indicator = 2131165365;
 			
 			// aapt resource value: 0x7F0700B6
-			public const int my_cursor = 2131165366;
+			public const int mv = 2131165366;
 			
 			// aapt resource value: 0x7F0700B7
-			public const int navigation_empty_icon = 2131165367;
+			public const int my_cursor = 2131165367;
 			
 			// aapt resource value: 0x7F0700B8
-			public const int notification_action_background = 2131165368;
+			public const int navigation_empty_icon = 2131165368;
 			
 			// aapt resource value: 0x7F0700B9
-			public const int notification_bg = 2131165369;
+			public const int notification_action_background = 2131165369;
 			
 			// aapt resource value: 0x7F0700BA
-			public const int notification_bg_low = 2131165370;
+			public const int notification_bg = 2131165370;
 			
 			// aapt resource value: 0x7F0700BB
-			public const int notification_bg_low_normal = 2131165371;
+			public const int notification_bg_low = 2131165371;
 			
 			// aapt resource value: 0x7F0700BC
-			public const int notification_bg_low_pressed = 2131165372;
+			public const int notification_bg_low_normal = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int notification_bg_normal = 2131165373;
+			public const int notification_bg_low_pressed = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int notification_bg_normal_pressed = 2131165374;
+			public const int notification_bg_normal = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int notification_icon_background = 2131165375;
+			public const int notification_bg_normal_pressed = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int notification_template_icon_bg = 2131165376;
+			public const int notification_icon_background = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int notification_template_icon_low_bg = 2131165377;
+			public const int notification_template_icon_bg = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int notification_tile_bg = 2131165378;
+			public const int notification_template_icon_low_bg = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int notify_panel_notification_icon_bg = 2131165379;
+			public const int notification_tile_bg = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int phieuluuposter = 2131165380;
+			public const int notify_panel_notification_icon_bg = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int play = 2131165381;
+			public const int playicon = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int playicon = 2131165382;
+			public const int posterdemo = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int posterdemo = 2131165383;
+			public const int posterdemosmall = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int posterdemosmall = 2131165384;
+			public const int preference_list_divider_material = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int preference_list_divider_material = 2131165385;
+			public const int register = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int register = 2131165386;
+			public const int search = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int search = 2131165387;
+			public const int search1 = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int search1 = 2131165388;
+			public const int settings = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int settings = 2131165389;
+			public const int signin = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int signin = 2131165390;
+			public const int star = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int star = 2131165391;
+			public const int store = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int storeicon = 2131165392;
+			public const int test_custom_background = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int test_custom_background = 2131165393;
+			public const int tinhcamposter = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int tinhcamposter = 2131165394;
+			public const int tooltip_frame_dark = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int tooltip_frame_dark = 2131165395;
+			public const int tooltip_frame_light = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int tooltip_frame_light = 2131165396;
+			public const int uploadImage = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int uploadImage = 2131165397;
+			public const int user = 2131165397;
 			
 			static Drawable()
 			{

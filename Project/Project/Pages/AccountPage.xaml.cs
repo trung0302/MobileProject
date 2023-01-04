@@ -44,7 +44,7 @@ namespace Project.Pages
         {
             Preferences.Set("accessToken", string.Empty);
             Preferences.Set("tokenExpirationTime", 0);
-            Application.Current.MainPage = new NavigationPage(new SignUpPage());
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -54,8 +54,19 @@ namespace Project.Pages
 
         private async void myRefreshView_Refreshing(object sender, EventArgs e)
         {
-            await Task.Delay(1000);
+            GetUserName();
+            await Task.Delay(500);
             myRefreshView.IsRefreshing = false;
+        }
+
+        private void ImgEdit_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UpdateNamePage());
+        }
+
+        private void cmdClick_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new UpdateNamePage());
         }
     }
 }
