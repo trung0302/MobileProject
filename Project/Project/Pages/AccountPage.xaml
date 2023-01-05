@@ -23,7 +23,7 @@
                                 <TapGestureRecognizer x:Name="ImgEdit" Tapped="ImgEdit_Tapped"/>
                             </Image.GestureRecognizers>
                         </Image>-->
-                        <ImageButton x:Name="cmdClick" Source="fix.png" WidthRequest="24"
+                        <ImageButton x:Name="cmdClick" Source="fix.png" WidthRequest="20"
                                      Aspect="AspectFit" BackgroundColor="Transparent"
                                      Margin="0, 12, 0, 0"
                                      Clicked="cmdClick_Clicked">

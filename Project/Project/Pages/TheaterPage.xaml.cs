@@ -31,17 +31,26 @@ namespace Project.Pages
 
         private async void EntSearchTheater_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (e.NewTextValue == null)
+            if (string.IsNullOrEmpty(e.NewTextValue.Trim()) && string.IsNullOrWhiteSpace(e.NewTextValue.Trim()))
             {
-                return;
+                GetTheaters();
             }
-            var moviesList = await ApiService.FindMovies(e.NewTextValue.ToLower());
-            CvTheaters.ItemsSource = moviesList;
+            else
+            {
+                var theatersList = await ApiService.FindTheaters(e.NewTextValue.ToLower());
+                CvTheaters.ItemsSource = theatersList;
+            }
         }
 
         private void CvTheaters_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private async void MyRefreshView_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            MyRefreshView.IsRefreshing = false;
         }
     }
 }

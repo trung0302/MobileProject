@@ -21,12 +21,15 @@ namespace Project.Pages
 
         private async void EntSearchMovie_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (e.NewTextValue == null)
+            if (string.IsNullOrEmpty(e.NewTextValue.Trim()) && string.IsNullOrWhiteSpace(e.NewTextValue.Trim()))
             {
-                return;
+                CvMovies.ItemsSource = "";
+            } 
+            else
+            {
+                var moviesList = await ApiService.FindMovies(e.NewTextValue.ToLower());
+                CvMovies.ItemsSource = moviesList;
             }
-            var moviesList = await ApiService.FindMovies(e.NewTextValue.ToLower());
-            CvMovies.ItemsSource = moviesList;
         }
 
         private void CvMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)

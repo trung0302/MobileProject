@@ -6,5 +6,6 @@
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Poppins" />
         </Style>
+        
     </Application.Resources>
 </Application>

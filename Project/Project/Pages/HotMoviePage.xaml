@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:Project.Pages"
              x:Class="Project.Pages.HotMoviePage"
              BackgroundColor="#191a32"
              Title="Mới&amp;Hot">
@@ -12,6 +13,20 @@
                 Clicked="ToolbarSearch_Clicked">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Slider">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <local:SubStringMonthConverter x:Key="SubStringMonth" />
+            <local:SubStringDayConverter x:Key="SubStringDay" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <Shell.TitleView>
         <StackLayout>
@@ -28,7 +43,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="0,30,0,0">
+                        <Grid Margin="0,36,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
@@ -38,25 +53,27 @@
                             </Grid.ColumnDefinitions>
                             <StackLayout Grid.Column="0" Grid.Row="0"
                                          HorizontalOptions="CenterAndExpand">
-                                <Label Text="THG 12" TextColor="#aaa" FontSize="14" />
-                                <Label Text="12" TextColor="White" FontSize="24" FontAttributes="Bold"
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="THG" TextColor="#aaa" FontSize="14" />
+                                    <Label Text="{Binding PlayingDate, Converter={StaticResource SubStringMonth}}" TextColor="#aaa" FontSize="14" />
+                                </StackLayout>
+                                <Label Text="{Binding PlayingDate, Converter={StaticResource SubStringDay}}" TextColor="White" FontSize="24" FontAttributes="Bold"
                                        HorizontalTextAlignment="Center" Margin="0, -8, 0, 0" />
                             </StackLayout>
                             <StackLayout Grid.Column="1" Grid.Row="0">
                                     <Frame Padding="0"
                                            CornerRadius="12">
-                                    <Image 
-                                               Aspect="AspectFill"
-                                               Source="filmdemo.png">
+                                    <Image Aspect="AspectFill" Source="{Binding FullImageUrl}">
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer x:Name="ImgDetail" Tapped="ImgDetail_Tapped"/>
                                         </Image.GestureRecognizers>
                                     </Image>
                                 </Frame>
-                                <Label x:Name="CvMovies" Text="{Binding Name}" TextColor="White"
+                                <Label x:Name="CvMovies" Text="{Binding Name}"
+                                       TextColor="White" HorizontalTextAlignment="Start"
                                        FontSize="18" FontAttributes="Bold" />
-                                <Label TextColor="#bbb"
-                                       Text="Đang tất bật chuẩn bị cho đám cưới triệu đô cùng chàng Jack điển trai, Đại mỹ nhân showbiz Ms. Q / Hoàng Quyên (Ninh Dương Lan Ngọc) bất ngờ gặp lại Quỳnh Yên (Kaity Nguyễn), một người em gái đã mất liên lạc từ lâu. Ngay sau đó, các rắc rối bí ẩn liên tục ập đến, kéo theo hàng loạt bí mật đen tối của cả hai cũng dần bị lột trần. Ai là kẻ đứng sau 'giật dây' mọi chuyện? Ai mới là nạn nhân? P/S: Bất kể cô ta có nói gì cũng nên nhớ: Đừng tin lời cô ta nói!" />
+                                <Label TextColor="#bbb" HorizontalTextAlignment="Start"
+                                       Text="{Binding Description}" />
                             </StackLayout>
                         </Grid>
                     </DataTemplate>

@@ -46,7 +46,7 @@
                    FontSize="15" />
             <Button x:Name="BtnCall"
                     Margin="28"
-                    Text="Call 0123456789"
+                    Text="Gọi 19001088"
                     BackgroundColor="White"
                     TextColor="Black"
                     FontSize="Medium"

@@ -72,10 +72,10 @@ namespace Project.Pages
         //}
         private async void GetGenre()
         {
-            var kinhdiMovies = await ApiService.GetGenre("kinhdi");
-            var hanhdongMovies = await ApiService.GetGenre("hanhdong");
-            var tinhcamMovies = await ApiService.GetGenre("tinhcam");
-            var hoathinhMovies = await ApiService.GetGenre("hoathinh");
+            var kinhdiMovies = await ApiService.GetGenre("Kinh dị");
+            var hanhdongMovies = await ApiService.GetGenre("Hành động");
+            var tinhcamMovies = await ApiService.GetGenre("Tình cảm");
+            var hoathinhMovies = await ApiService.GetGenre("Hoạt hình");
 
             CvKinhDiMovies.ItemsSource = kinhdiMovies;
             CvHanhDongMovies.ItemsSource = hanhdongMovies;
@@ -183,14 +183,6 @@ namespace Project.Pages
             if (currentSelection == null) return;
             Navigation.PushModalAsync(new MovieDetailPage(currentSelection.Id));
             ((CollectionView)sender).SelectedItem = null;
-        }
-
-        private void cmdNavigate_Clicked(object sender, EventArgs e)
-        {
-            var button = sender as Button; 
-            var model = button.BindingContext as Movie;
-
-            Navigation.PushModalAsync(new MovieDetailPage(model.Id));
         }
 
         //    private void TapLogout_Tapped(object sender, EventArgs e)
