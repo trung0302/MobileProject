@@ -13,67 +13,76 @@
         </StackLayout>
     </Shell.TitleView>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Frame Padding="5"
+        <RefreshView x:Name="MyRefreshView" RefreshColor="DodgerBlue" Refreshing="MyRefreshView_Refreshing">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame Padding="5"
                        HasShadow="False"
                        HorizontalOptions="FillAndExpand"
                        BackgroundColor="#191a32"
                        BorderColor="Transparent">
-                    <StackLayout Orientation="Horizontal" Margin="0, 12, 0, 0">
-                        <Frame Margin="0,0,15,0"
+                            <StackLayout Orientation="Horizontal" Margin="0, 12, 0, 0">
+                                <Frame Margin="0,0,15,0"
                                Padding="0"
                                HasShadow="False"
                                BackgroundColor="#191a32"
                                HorizontalOptions="FillAndExpand">
-                            <renderers:BorderlessEntry Placeholder="Tìm kiếm rạp phim..." FontSize="16" TextColor="White" 
+                                    <renderers:BorderlessEntry Placeholder="Tìm kiếm rạp phim..." FontSize="16" TextColor="White" 
                                                        PlaceholderColor="LightBlue"
                                                        x:Name="EntSearchTheater"
                                                        TextChanged="EntSearchTheater_TextChanged"/>
+                                </Frame>
+                                <Image Source="search1.png" Margin="0, 0, 12, 0" />
+                            </StackLayout>
                         </Frame>
-                        <Image Source="search1.png" Margin="0, 0, 12, 0" />
                     </StackLayout>
-                </Frame>
-            </StackLayout>
-            <CollectionView x:Name="CvTheaters"
+                    <CollectionView x:Name="CvTheaters"
                             SelectionMode="Single"
                             SelectionChanged="CvTheaters_SelectionChanged">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="1"
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Span="1"
                                      Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="15,10,15,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*" />
-                                <ColumnDefinition Width="8*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Aspect="AspectFill"
-                                   HeightRequest="100"
-                                   VerticalOptions="Start"
-                                   Grid.Column="0"
-                                   Source="{Binding ImageUrl}"/>
-                            <Label FontSize="Medium"
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="15,10,15,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="8*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Grid.Column="0" Grid.Row="0" 
+                                   Grid.RowSpan="2"
+                                   Padding="0" HasShadow="False"
+                                   CornerRadius="8" BackgroundColor="Transparent"
+                                   HeightRequest="100" VerticalOptions="Start">
+                                        <Image Aspect="AspectFill"
+                                       HeightRequest="100"
+                                       Source="{Binding ImageUrl}"/>
+                                    </Frame>
+                                    <Label FontSize="18" Margin="12, 20, 0, 0"
                                    Grid.Column="1"
                                    Grid.Row="0"
-                                   TextColor="White"
+                                   TextColor="Orange"
+                                   FontAttributes="Bold"
                                    VerticalOptions="Center"
                                    Text="{Binding Name}"/>
-                            <Label FontSize="Medium"
+                                    <Label FontSize="14" Margin="12, 0, 0, 20"
                                    Grid.Column="1"
-                                   Grid.Row="1"
-                                   TextColor="White"
+                                   Grid.Row="1" 
+                                   TextColor="#aaa"
                                    VerticalOptions="Center"
                                    Text="{Binding Location}"/>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

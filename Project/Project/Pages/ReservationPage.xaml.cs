@@ -42,27 +42,27 @@ namespace Project.Pages
             SpanTotalPrice.Text = String.Format("{0:n0}", totalPrice);
         }
 
-        private async void ImgReserve_Tapped(object sender, EventArgs e)
-        {
-            var reservation = new Reservation()
-            {
-                UserId = Preferences.Get("userId", string.Empty),
-                MovieId = movieId,
-                Phone = EntPhone.Text,
-                Qty = Convert.ToInt32(SpanQty.Text),
-                Price = Convert.ToDouble(SpanTotalPrice.Text)
-            };
+        //private async void ImgReserve_Tapped(object sender, EventArgs e)
+        //{
+        //    var reservation = new Reservation()
+        //    {
+        //        UserId = Preferences.Get("userId", string.Empty),
+        //        MovieId = movieId,
+        //        Phone = EntPhone.Text,
+        //        Qty = Convert.ToInt32(SpanQty.Text),
+        //        Price = Convert.ToDouble(SpanTotalPrice.Text)
+        //    };
 
-            var response = await ApiService.ReserveMovieTicket(reservation);
-            if (response)
-            {
-                await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
-            }
-            else
-            {
-                await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
-            }
-        }
+        //    var response = await ApiService.ReserveMovieTicket(reservation);
+        //    if (response)
+        //    {
+        //        await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
+        //    }
+        //    else
+        //    {
+        //        await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
+        //    }
+        //}
 
         private void ImgBack_Tapped(object sender, EventArgs e)
         {
@@ -83,16 +83,16 @@ namespace Project.Pages
         private async void cmdPayment_Clicked(object sender, EventArgs e)
         {
             var a = Convert.ToInt32(SpanQty.Text);
-            var b = SpanTheater;
+            var b = a;
             var reservation = new Reservation()
             {
-                Qty = Convert.ToInt32(SpanQty.Text),
+                Quantity = a,
                 Price = Convert.ToDouble(SpanTotalPrice.Text),
                 Phone = EntPhone.Text,
                 PhuongThuc = SpanPayment,
                 Theater = SpanTheater,
-                UserId = Preferences.Get("userId", string.Empty),
                 MovieId = movieId,
+                UserId = Preferences.Get("userId", string.Empty),
             };
             
             var response = await ApiService.ReserveMovieTicket(reservation);

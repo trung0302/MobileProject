@@ -17,30 +17,18 @@ namespace Project.Pages
     public partial class OrderPage : ContentPage
     {
         private string userId;
-        public ObservableCollection<Order> MoviesCollection;
         public OrderPage()
         {
             InitializeComponent();
-            MoviesCollection = new ObservableCollection<Order>();
 
             GetTicket();
         }
 
         public async void GetTicket()
         {
-            //MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png", FullImageUrl = "filmdemo.png" });
-            //MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png", FullImageUrl = "filmdemo.png" });
-            //MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png", FullImageUrl = "filmdemo.png" });
-            //MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png", FullImageUrl = "filmdemo.png" });
-            //MoviesCollection.Add(new Movie { Id = "1", Name = "Doctor Strange", Duration = "15", Language = "English", Rating = 4.5, Genre = "123", ImageUrl = "filmdemo.png", FullImageUrl = "filmdemo.png" });
             userId = Preferences.Get("userId", string.Empty);
             var movies = await ApiService.GetTickets(userId);
 
-            foreach (var movie in movies)
-            {
-                MoviesCollection.Add(movie);
-            }
-            //CvTickets.ItemsSource = MoviesCollection;
             CvTickets.ItemsSource = movies;
         }
         private void ToolbarSearch_Clicked(object sender, EventArgs e)

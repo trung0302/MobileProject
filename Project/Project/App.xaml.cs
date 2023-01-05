@@ -1,6 +1,7 @@
 ﻿using Project.Pages;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -10,6 +11,7 @@ namespace Project
 {
     public partial class App : Application
     {
+
         public App()
         {
             //Register Syncfusion license

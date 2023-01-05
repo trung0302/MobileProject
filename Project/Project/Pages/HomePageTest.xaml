@@ -34,17 +34,24 @@
                                   HeightRequest="450" 
                                   IsScrollAnimated="True" IsSwipeEnabled="True" >
                         <!--<CarouselView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="00" 
+                                               SnapPointsAlignment="Center" SnapPointsType="Mandatory"></LinearItemsLayout>
                         </CarouselView.ItemsLayout>-->
                         <CarouselView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout Padding="0">
+                                    <!--<StackLayout.Triggers>
+                                        <DataTrigger TargetType="StackLayout"
+                                                     Binding="{Binding IsSelected}"
+                                                     Value="True">
+                                            <Setter Property="Opacity" Value="1"></Setter>
+                                        </DataTrigger>
+                                    </StackLayout.Triggers>-->
                                     <Frame HasShadow="True"
                                        BorderColor="DarkGray"
                                        Padding="0"
                                        HeightRequest="380"
-                                       HorizontalOptions="FillAndExpand"
-                                         >
+                                       HorizontalOptions="FillAndExpand">
                                         <StackLayout>
                                             <Image Source="{Binding FullImageUrl}"
                                                    Aspect="AspectFill"
@@ -62,10 +69,9 @@
                                         FontSize="Large"
                                         HorizontalOptions="CenterAndExpand"
                                         VerticalOptions="Center" />
-                                    <Label Text="{Binding Language}"
-                                        TextColor="White"
+                                    <Label Text="{Binding Duration}"
+                                        TextColor="#ccc"
                                         HorizontalOptions="Center" />
-                                    <Button x:Name="cmdNavigate" Text="Navigation" Clicked="cmdNavigate_Clicked" />
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>
