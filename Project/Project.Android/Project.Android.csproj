@@ -118,9 +118,6 @@
     <AndroidResource Include="Resources\drawable\backicon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bookticket.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\contact.png" />
   </ItemGroup>
   <ItemGroup>
@@ -151,9 +148,6 @@
     <AndroidResource Include="Resources\drawable\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\filmdemo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\account1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -169,12 +163,6 @@
     <AndroidResource Include="Resources\drawable\my_cursor.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\posterdemo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\posterdemosmall.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\raw\trailer.mp4" />
   </ItemGroup>
   <ItemGroup>
@@ -182,12 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\applogo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\kinhdiposter.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\tinhcamposter.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\network_security_config.xml" />
@@ -203,10 +185,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\store.png" />
-    <AndroidResource Include="Resources\drawable\movie1.png" />
     <AndroidResource Include="Resources\drawable\fix.png" />
     <AndroidResource Include="Resources\drawable\mv.png" />
-    <Content Include="store.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hotmv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\timer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

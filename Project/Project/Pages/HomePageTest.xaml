@@ -66,12 +66,15 @@
                                     <Label Text="{Binding Name}"
                                         FontAttributes="Bold"
                                         TextColor="White"
-                                        FontSize="Large"
+                                        FontSize="Large" 
                                         HorizontalOptions="CenterAndExpand"
                                         VerticalOptions="Center" />
-                                    <Label Text="{Binding Duration}"
-                                        TextColor="#ccc"
-                                        HorizontalOptions="Center" />
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                        <Image Source="timer.png" WidthRequest="16" Aspect="AspectFit" />
+                                        <Label Text="{Binding Duration}"
+                                            TextColor="#ccc"
+                                            HorizontalOptions="Center" />
+                                    </StackLayout>
                                 </StackLayout>
                             </DataTemplate>
                         </CarouselView.ItemTemplate>

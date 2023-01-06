@@ -23,7 +23,7 @@
         <Tab Icon="history.png" Title="Lịch sử" >
             <ShellContent ContentTemplate="{DataTemplate pages:OrderPage}" />
         </Tab>
-        <Tab Icon="mv.png" Title="Mới&amp;Hot">
+        <Tab Icon="hotmv.png" Title="Sắp ra mắt">
             <ShellContent ContentTemplate="{DataTemplate pages:HotMoviePage}" />
         </Tab>
         <Tab Icon="store.png" Title="Rạp phim">
