@@ -33,24 +33,40 @@ namespace Project.Pages
             if (!string.IsNullOrEmpty(EntCurrentPassword.Text)
                 && !string.IsNullOrEmpty(EntNewPassword.Text)
                 && !string.IsNullOrWhiteSpace(EntCurrentPassword.Text)
-                && !string.IsNullOrWhiteSpace(EntNewPassword.Text))
+                && !string.IsNullOrWhiteSpace(EntNewPassword.Text)
+                && !string.IsNullOrEmpty(EntNewPasswordAgain.Text)
+                && !string.IsNullOrWhiteSpace(EntNewPasswordAgain.Text))
             {
                 if (EntCurrentPassword.Text != currentPass)
                 {
-                    await DisplayAlert("Mật khẩu hiện tại không đúng", "Vui lòng nhập lại mật khẩu!", "Đồng ý");
+                    await DisplayAlert("Thông báo", "Mật khẩu hiện tại không đúng! Vui lòng nhập lại mật khẩu!", "Đồng ý");
                 }
                 else
                 {
                     if (EntNewPassword.Text != currentPass)
                     {
-                        var response = await ApiService.UpdateUser(username, EntNewPassword.Text);
-                        if (response)
+                        if (EntNewPassword.Text.Length > 5)
                         {
-                            await DisplayAlert("Thông báo", "Bạn đã cập nhật tài khoản thành công!", "Đồng ý");
+                            if (EntNewPassword.Text.Equals(EntNewPasswordAgain.Text))
+                            {
+                                var response = await ApiService.UpdateUser(username, EntNewPassword.Text);
+                                if (response)
+                                {
+                                    await DisplayAlert("Thông báo", "Bạn đã cập nhật tài khoản thành công!", "Đồng ý");
+                                }
+                                else
+                                {
+                                    await DisplayAlert("Thông báo", "Có lỗi! Vui lòng thử lại!", "Đồng ý");
+                                }
+                            }
+                            else
+                            {
+                                await DisplayAlert("Thông báo", "Mật khẩu nhập lại không đúng!", "Đồng ý");
+                            }
                         }
                         else
                         {
-                            await DisplayAlert("Thông báo", "Có lỗi! Vui lòng thử lại!", "Đồng ý");
+                            await DisplayAlert("Thông báo", "Mật khẩu phải tối thiểu 6 kí tự!", "Đồng ý");
                         }
                     }
                     else

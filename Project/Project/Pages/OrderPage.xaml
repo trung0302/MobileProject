@@ -48,41 +48,40 @@
                                            Text="{Binding Name}"
                                            Grid.Column="1"
                                            Grid.Row="0"
-                                           TextColor="#ec2f26"
+                                           TextColor="Orange"
                                            VerticalOptions="Center"
                                            HorizontalOptions="CenterAndExpand" />
                                             <StackLayout Orientation="Horizontal" Padding="8, 0" >
-                                                <Label Text="Ngày chiếu: " FontSize="16"
+                                                <Label Text="Ngày chiếu:" FontSize="16"
                                                    TextColor="Black" />
                                                 <Label x:Name="LblPlayingDate" FontSize="16" Text="{Binding PlayingDate}"
                                                TextColor="Black" />
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Padding="8, 0" >
-                                                <Label Text="Giờ chiếu: " FontSize="16"
+                                                <Label Text="Giờ chiếu:" FontSize="16"
                                                    TextColor="Black" />
                                                 <Label x:Name="LblPlayingTime" FontSize="16" Text="{Binding PlayingTime}"
                                                TextColor="Black" />
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Padding="8, 0" >
-                                                <Label Text="Thời lượng: " FontSize="16"
+                                                <Label Text="Thời lượng:" FontSize="16"
                                                    TextColor="Black" />
                                                 <Label x:Name="LblDuration" FontSize="16" Text="{Binding Duration}"
                                                TextColor="Black" />
                                             </StackLayout>
-                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="39">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="25">
                                                 <StackLayout Orientation="Horizontal" >
-                                                    <Label Text="Số lượng: " FontSize="16"
+                                                    <Label Text="Số lượng:" FontSize="16"
                                                        TextColor="Black" />
                                                     <Label x:Name="LblQuantity" FontSize="16" Text="{Binding Quantity}"
                                                    TextColor="Black" />
                                                 </StackLayout>
                                                 <StackLayout Orientation="Horizontal" >
-                                                    <Label Text="Giá: " FontSize="16"
+                                                    <Label Text="Tổng:" FontSize="16"
                                                        TextColor="Black" />
-                                                    <Label x:Name="LblPrice" FontSize="16" Text="{Binding Price, StringFormat='{0:N0}'}"
-                                                   TextColor="Black" />
-                                                    <Label Text="VNĐ" FontSize="16"
-                                                       TextColor="Black" />
+                                                    <Label x:Name="LblPrice" FontSize="16" TextColor="#ec2f26"
+                                                           Text="{Binding Price, StringFormat='{0:N0}'}" />
+                                                    <Label Text="VNĐ" FontSize="16" TextColor="#ec2f26" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </StackLayout>

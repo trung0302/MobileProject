@@ -29,7 +29,7 @@ namespace Project.Pages
             }
             else
             {
-                await DisplayAlert("Lỗi", "Tài khoản hoặc mật khẩu không đúng! Vui lòng nhập lại...", "Hủy");
+                await DisplayAlert("Lỗi", "Email hoặc mật khẩu không đúng! Vui lòng nhập lại...", "Hủy");
             }
         }
 

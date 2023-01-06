@@ -44,7 +44,8 @@ namespace Project.Pages
         {
             Preferences.Set("accessToken", string.Empty);
             Preferences.Set("tokenExpirationTime", 0);
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            //Application.Current.MainPage = new NavigationPage(new LoginPage());
+            Application.Current.MainPage = new LoginPage();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

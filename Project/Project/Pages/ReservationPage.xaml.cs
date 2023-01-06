@@ -29,7 +29,8 @@ namespace Project.Pages
             LblLanguage.Text = movie.Language;
             LblDuration.Text = movie.Duration;
             ImgMovie.Source = movie.FullImageUrl;
-            SpanPrice.Text = SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice);
+            //SpanPrice.Text = SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice); 
+            SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice);
             ticketPrice = movie.TicketPrice;
             movieId = movie.Id;
         }
@@ -37,32 +38,11 @@ namespace Project.Pages
         private void PickerQty_SelectedIndexChanged(object sender, EventArgs e)
         {
             var qty = PickerQty.Items[PickerQty.SelectedIndex];
-            SpanQty.Text = qty;
-            double totalPrice = Convert.ToDouble(SpanQty.Text) * ticketPrice;
+            //SpanQty.Text = qty;
+            //double totalPrice = Convert.ToDouble(SpanQty.Text) * ticketPrice;
+            double totalPrice = Convert.ToInt32(qty) * ticketPrice;
             SpanTotalPrice.Text = String.Format("{0:n0}", totalPrice);
         }
-
-        //private async void ImgReserve_Tapped(object sender, EventArgs e)
-        //{
-        //    var reservation = new Reservation()
-        //    {
-        //        UserId = Preferences.Get("userId", string.Empty),
-        //        MovieId = movieId,
-        //        Phone = EntPhone.Text,
-        //        Qty = Convert.ToInt32(SpanQty.Text),
-        //        Price = Convert.ToDouble(SpanTotalPrice.Text)
-        //    };
-
-        //    var response = await ApiService.ReserveMovieTicket(reservation);
-        //    if (response)
-        //    {
-        //        await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
-        //    }
-        //    else
-        //    {
-        //        await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
-        //    }
-        //}
 
         private void ImgBack_Tapped(object sender, EventArgs e)
         {
@@ -82,7 +62,8 @@ namespace Project.Pages
 
         private async void cmdPayment_Clicked(object sender, EventArgs e)
         {
-            var a = Convert.ToInt32(SpanQty.Text);
+            //var a = Convert.ToInt32(SpanQty.Text);
+            var a = Convert.ToInt32(PickerQty.Items[PickerQty.SelectedIndex]);
             var b = a;
             var reservation = new Reservation()
             {
@@ -102,7 +83,7 @@ namespace Project.Pages
             }
             else
             {
-                await DisplayAlert("Thông báo", "Có lỗi! Xin vui lòng thử lại!", "Hủy");
+                await DisplayAlert("Thông báo", "Vui lòng điền đẩy đủ thông tin trước khi thanh toán!", "Hủy");
             }
         }
 

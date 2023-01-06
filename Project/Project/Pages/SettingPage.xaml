@@ -16,13 +16,21 @@
                                        FontSize="14"
                                        Placeholder="Nhập mật khẩu hiện tại"
                                        PlaceholderColor="#979797" />
-                <Label Text="Nhập mật khẩu hiện mới" TextColor="White" FontSize="14" />
+                <Label Text="Nhập mật khẩu mới" TextColor="White" FontSize="14" />
                 <renderers:NormalEntry Margin="0, -8, 0, 0"
                                        x:Name="EntNewPassword"
                                        IsPassword="True"
                                        TextColor="#979797"
                                        FontSize="14"
                                        Placeholder="Nhập mật khẩu mới"
+                                       PlaceholderColor="#979797" />
+                <Label Text="Nhập lại mật khẩu mới" TextColor="White" FontSize="14" />
+                <renderers:NormalEntry Margin="0, -8, 0, 0"
+                                       x:Name="EntNewPasswordAgain"
+                                       IsPassword="True"
+                                       TextColor="#979797"
+                                       FontSize="14"
+                                       Placeholder="Nhập lại mật khẩu mới"
                                        PlaceholderColor="#979797" />
                 
                 <Button x:Name="cmdUpdate" CornerRadius="50" Text="CẬP NHẬT" FontSize="Medium" Margin="0, 40, 0, 0"
