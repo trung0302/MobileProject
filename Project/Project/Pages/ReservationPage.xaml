@@ -8,280 +8,296 @@
              x:Class="Project.Pages.ReservationPage"
              BackgroundColor="#191a32">
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView>
-                <StackLayout Margin="15,20,15,0">
-                    <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1.5*" />
-                        <ColumnDefinition Width="7*" />
-                        <ColumnDefinition Width="1.5*" />
-                    </Grid.ColumnDefinitions>
-                    <Image Source="backicon.png"
-                           HorizontalOptions="Start"
-                           Margin="10, 10, 0, 0"
-                           Grid.Column="0"
-                           Aspect="AspectFit">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="ImgBack" Tapped="ImgBack_Tapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Label Text="Đặt vé"
-                           TextColor="White"
-                           VerticalOptions="Start"
-                           HorizontalOptions="Center"
-                           FontSize="Title"
-                           Grid.Column="1" />
-                </Grid>
-                    <Grid Margin="0,15,0,0"
-                      HeightRequest="250">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4.5*" />
-                            <ColumnDefinition Width="5.5*" />
-                        </Grid.ColumnDefinitions>
-                        <Frame Padding="20"
-                               BackgroundColor="#24243b"
-                               CornerRadius="5"
-                               Grid.Row="1"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="2"></Frame>
-                        <StackLayout Grid.Row="0"
-                                     Grid.RowSpan="2"
-                                     Grid.Column="0"
-                                     Margin="10">
-                            <Frame Padding="0"
-                                   CornerRadius="10">
-                                <Image VerticalOptions="Start"
-                                       Aspect="AspectFill"
-                                       HeightRequest="200"
-                                       x:Name="ImgMovie"></Image>
-                            </Frame>
-                        </StackLayout>
-                        <StackLayout Grid.Column="1"
-                                     Padding="5"
-                                     Spacing="10"
-                                     Grid.Row="1">
-                                <Label x:Name="LblMovieName" FontSize="18"
-                                   TextColor="White" />
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                </Grid>
-                                <StackLayout Orientation="Horizontal"
-                                         Spacing="0"
-                                         Grid.Row="0"
-                                         Grid.Column="0">
-                                    <Frame BackgroundColor="#707070"
-                                       BorderColor="#707070"
-                                       Padding="8"
-                                       CornerRadius="30">
-                                        <Label TextColor="White"
-                                           x:Name="LblGenre" />
+        <RefreshView x:Name="MyRefreshView" RefreshColor="DodgerBlue" Refreshing="MyRefreshView_Refreshing">
+                <StackLayout>
+                    <ScrollView>
+                        <StackLayout Margin="15,20,15,0">
+                            <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="1.5*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="backicon.png"
+                                   HorizontalOptions="Start"
+                                   Margin="10, 10, 0, 0"
+                                   Grid.Column="0"
+                                   Aspect="AspectFit">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer x:Name="ImgBack" Tapped="ImgBack_Tapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Đặt vé"
+                                   TextColor="White"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="Center"
+                                   FontSize="Title"
+                                   Grid.Column="1" />
+                        </Grid>
+                            <Grid Margin="0,15,0,0"
+                              HeightRequest="250">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="4.5*" />
+                                    <ColumnDefinition Width="5.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Frame Padding="20"
+                                       BackgroundColor="#24243b"
+                                       CornerRadius="5"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"></Frame>
+                                <StackLayout Grid.Row="0"
+                                             Grid.RowSpan="2"
+                                             Grid.Column="0"
+                                             Margin="10">
+                                    <Frame Padding="0"
+                                           CornerRadius="10">
+                                        <Image VerticalOptions="Start"
+                                               Aspect="AspectFill"
+                                               HeightRequest="200"
+                                               x:Name="ImgMovie"></Image>
                                     </Frame>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="star.png"
-                                       VerticalOptions="Center"
-                                       Aspect="Fill"
-                                       HeightRequest="20"
-                                       WidthRequest="20" />
-                                    <Label x:Name="LblRating"
-                                       TextColor="White" />
+                                <StackLayout Grid.Column="1"
+                                             Padding="5"
+                                             Spacing="10"
+                                             Grid.Row="1">
+                                        <Label x:Name="LblMovieName" FontSize="18"
+                                           TextColor="White" />
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                        </Grid>
+                                        <StackLayout Orientation="Horizontal"
+                                                 Spacing="0"
+                                                 Grid.Row="0"
+                                                 Grid.Column="0">
+                                            <Frame BackgroundColor="#707070"
+                                               BorderColor="#707070"
+                                               Padding="8"
+                                               CornerRadius="30">
+                                                <Label TextColor="White"
+                                                   x:Name="LblGenre" />
+                                            </Frame>
+                                            <StackLayout Orientation="Horizontal" Margin="15, 0, 0, 0">
+                                                <Label x:Name="LblRating"
+                                                               TextColor="White" VerticalOptions="Center" />
+                                                <Image Source="star.png"
+                                                               VerticalOptions="Center"
+                                                               Aspect="Fill"
+                                                               HeightRequest="20"
+                                                               WidthRequest="20" />
+                                            </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Nguồn gốc: "
-                                                   TextColor="White" />
-                                    <Label x:Name="LblLanguage"
+                                        <!--<StackLayout Orientation="Horizontal">
+                                            <Label x:Name="LblRating"
+                                                       TextColor="White" />
+                                            <Image Source="star.png"
+                                                       VerticalOptions="Center"
+                                                       Aspect="Fill"
+                                                       HeightRequest="20"
+                                                       WidthRequest="20" />
+                                        </StackLayout>-->
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Ngôn ngữ: "
+                                                           TextColor="White" />
+                                            <Label x:Name="LblLanguage"
+                                                       TextColor="White" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Thời lượng: "
                                                TextColor="White" />
+                                            <Label x:Name="LblDuration"
+                                               TextColor="White" />
+                                        </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Số lượng vé: "
+                                               TextColor="White" />
+                                        <Label x:Name="LblTicketQty"
+                                               TextColor="White" />
+                                    </StackLayout>
                                 </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Thời lượng: "
-                                       TextColor="White" />
-                                    <Label x:Name="LblDuration"
-                                       TextColor="White" />
+                            </Grid> 
+                
+                            <!--SĐT-->
+                            <Frame Margin="0,15,0,0"
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                <StackLayout Spacing="0">
+                                        <StackLayout BackgroundColor="#131C25">
+                                        <Label Text="Số điện thoại"
+                                               TextColor="White"
+                                               Padding="8" />
+                                    </StackLayout>
+                                    <StackLayout BackgroundColor="White">
+                                            <Entry x:Name="EntPhone"
+                                               Placeholder="Điền số điện thoại của bạn"
+                                               FontSize="16"
+                                               TextColor="Black"
+                                               Margin="10"
+                                               Keyboard="Telephone"/>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
-                    </Grid> 
+                            </Frame>
                 
-                    <!--SĐT-->
-                    <Frame Margin="0,15,0,0"
-                           CornerRadius="10"
-                           HasShadow="False"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                        <StackLayout Spacing="0">
-                                <StackLayout BackgroundColor="#131C25">
-                                <Label Text="Số điện thoại"
-                                       TextColor="White"
-                                       Padding="8" />
-                            </StackLayout>
-                            <StackLayout BackgroundColor="White">
-                                    <Entry x:Name="EntPhone"
-                                       Placeholder="Điền số điện thoại của bạn"
-                                       FontSize="16"
-                                       TextColor="Black"
-                                       Margin="10"
-                                       Keyboard="Telephone"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
-                
-                    <!--Chọn số lượng vé-->
-                    <Frame Margin="0,30,0,0"
-                           CornerRadius="10"
-                           HasShadow="False"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                        <StackLayout Spacing="0">
-                            <StackLayout BackgroundColor="#131C25">
-                                <Label Text="Số lượng"
-                                       TextColor="White"
-                                       Padding="8" />
-                            </StackLayout>
-                            <StackLayout BackgroundColor="White">
-                                <renderers:BorderlessPicker  Margin="10"
-                                                             Title="Chọn số lượng vé"
-                                                             TextColor="Black"
-                                                             x:Name="PickerQty"
-                                                             SelectedIndexChanged="PickerQty_SelectedIndexChanged">
-                                    <renderers:BorderlessPicker.Items>
-                                        <x:String>1</x:String>
-                                        <x:String>2</x:String>
-                                        <x:String>3</x:String>
-                                        <x:String>4</x:String>
-                                        <x:String>5</x:String>
-                                        <x:String>6</x:String>
-                                        <x:String>7</x:String>
-                                        <x:String>8</x:String>
-                                        <x:String>9</x:String>
-                                        <x:String>10</x:String>
-                                        <x:String>11</x:String>
-                                        <x:String>12</x:String>
-                                        <x:String>13</x:String>
-                                        <x:String>14</x:String>
-                                        <x:String>15</x:String>
-                                        <x:String>16</x:String>
-                                        <x:String>17</x:String>
-                                        <x:String>18</x:String>
-                                        <x:String>19</x:String>
-                                    </renderers:BorderlessPicker.Items>
-                                    <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
-                                </renderers:BorderlessPicker>
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
+                            <!--Chọn số lượng vé-->
+                            <Frame Margin="0,30,0,0"
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                <StackLayout Spacing="0">
+                                    <StackLayout BackgroundColor="#131C25">
+                                        <Label Text="Số lượng"
+                                               TextColor="White"
+                                               Padding="8" />
+                                    </StackLayout>
+                                    <StackLayout BackgroundColor="White">
+                                        <renderers:BorderlessPicker  Margin="10"
+                                                                     Title="Chọn số lượng vé"
+                                                                     TextColor="Black"
+                                                                     x:Name="PickerQty"
+                                                                     SelectedIndexChanged="PickerQty_SelectedIndexChanged">
+                                            <renderers:BorderlessPicker.Items>
+                                                <x:String>1</x:String>
+                                                <x:String>2</x:String>
+                                                <x:String>3</x:String>
+                                                <x:String>4</x:String>
+                                                <x:String>5</x:String>
+                                                <x:String>6</x:String>
+                                                <x:String>7</x:String>
+                                                <x:String>8</x:String>
+                                                <x:String>9</x:String>
+                                                <x:String>10</x:String>
+                                                <x:String>11</x:String>
+                                                <x:String>12</x:String>
+                                                <x:String>13</x:String>
+                                                <x:String>14</x:String>
+                                                <x:String>15</x:String>
+                                                <x:String>16</x:String>
+                                                <x:String>17</x:String>
+                                                <x:String>18</x:String>
+                                                <x:String>19</x:String>
+                                            </renderers:BorderlessPicker.Items>
+                                            <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
+                                        </renderers:BorderlessPicker>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
              
-                    <!--Tổng tiền-->
-                    <!--<Frame Margin="0,30,0,0"
-                           CornerRadius="10"
-                           HasShadow="False"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                            <StackLayout Spacing="0">
-                                <StackLayout BackgroundColor="#131C25">
-                                    <Label Text="Tổng số tiền"
-                                       TextColor="White"
-                                       Padding="8" />
-                                </StackLayout>
-                                <StackLayout BackgroundColor="White">
-                                    <Label Padding="10">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span x:Name="SpanQty"
-                                                  CharacterSpacing="2"
-                                                  TextColor="Black"
-                                                  Text="1" />
-                                                <Span TextColor="Black"
-                                                  CharacterSpacing="2"
-                                                  Text="*" />
-                                                <Span x:Name="SpanPrice"
-                                                  TextColor="Black"
-                                                  CharacterSpacing="2" />
-                                                <Span TextColor="Black"
-                                                  CharacterSpacing="2"
-                                                  Text=" = " />
-                                                <Span TextColor="#F38914"
-                                                  CharacterSpacing="2" />
-                                                <Span x:Name="SpanTotalPrice"
-                                                  TextColor="#F38914"
-                                                  CharacterSpacing="2" />
-                                                <Span TextColor="#F38914"
-                                                  Text=" VNĐ"
-                                                  CharacterSpacing="2" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>-->
+                            <!--Tổng tiền-->
+                            <!--<Frame Margin="0,30,0,0"
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                    <StackLayout Spacing="0">
+                                        <StackLayout BackgroundColor="#131C25">
+                                            <Label Text="Tổng số tiền"
+                                               TextColor="White"
+                                               Padding="8" />
+                                        </StackLayout>
+                                        <StackLayout BackgroundColor="White">
+                                            <Label Padding="10">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span x:Name="SpanQty"
+                                                          CharacterSpacing="2"
+                                                          TextColor="Black"
+                                                          Text="1" />
+                                                        <Span TextColor="Black"
+                                                          CharacterSpacing="2"
+                                                          Text="*" />
+                                                        <Span x:Name="SpanPrice"
+                                                          TextColor="Black"
+                                                          CharacterSpacing="2" />
+                                                        <Span TextColor="Black"
+                                                          CharacterSpacing="2"
+                                                          Text=" = " />
+                                                        <Span TextColor="#F38914"
+                                                          CharacterSpacing="2" />
+                                                        <Span x:Name="SpanTotalPrice"
+                                                          TextColor="#F38914"
+                                                          CharacterSpacing="2" />
+                                                        <Span TextColor="#F38914"
+                                                          Text=" VNĐ"
+                                                          CharacterSpacing="2" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>-->
 
-                    <!--Chọn rạp phim-->
-                    <Frame Margin="0,30,0,0"
-                           CornerRadius="10"
-                           HasShadow="False"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                            <StackLayout Spacing="0">
-                                <StackLayout BackgroundColor="#131C25">
-                                    <Label Text="Rạp phim"
-                                       TextColor="White"
-                                       Padding="8" />
-                                </StackLayout>
-                                <StackLayout BackgroundColor="White">
-                                    <renderers:BorderlessPicker  Margin="10"
-                                                             Title="Chọn rạp phim"
-                                                             TextColor="Black"
-                                                             x:Name="PickerTheater"
-                                                             SelectedIndexChanged="PickerTheater_SelectedIndexChanged">
-                                        <renderers:BorderlessPicker.Items>
-                                        <x:String>Lotte Bình Dương</x:String>
-                                        <x:String>BTCinema Đông Anh Hà Nội</x:String>
-                                        </renderers:BorderlessPicker.Items>
-                                        <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
-                                    </renderers:BorderlessPicker>
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
+                            <!--Chọn rạp phim-->
+                            <Frame Margin="0,30,0,0"
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                    <StackLayout Spacing="0">
+                                        <StackLayout BackgroundColor="#131C25">
+                                            <Label Text="Rạp phim"
+                                               TextColor="White"
+                                               Padding="8" />
+                                        </StackLayout>
+                                        <StackLayout BackgroundColor="White">
+                                            <renderers:BorderlessPicker  Margin="10"
+                                                                     Title="Chọn rạp phim"
+                                                                     TextColor="Black"
+                                                                     x:Name="PickerTheater"
+                                                                     SelectedIndexChanged="PickerTheater_SelectedIndexChanged">
+                                                <renderers:BorderlessPicker.Items>
+                                                <x:String>Lotte Bình Dương</x:String>
+                                                <x:String>BTCinema Đông Anh Hà Nội</x:String>
+                                                </renderers:BorderlessPicker.Items>
+                                                <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
+                                            </renderers:BorderlessPicker>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
 
-                    <!--Phương thức thanh toán 1-->
-                    <Frame Margin="0,30,0,30"
-                           CornerRadius="10"
-                           HasShadow="False"
-                           Padding="0"
-                           IsClippedToBounds="True">
-                        <StackLayout Spacing="0">
-                            <StackLayout BackgroundColor="#131C25">
-                                <Label Text="Phương thức thanh toán"
-                                       TextColor="White"
-                                       Padding="8" />
-                            </StackLayout>
-                            <StackLayout BackgroundColor="White">
-                                <renderers:BorderlessPicker  Margin="10"
-                                                             Title="Chọn phương thức thanh toán"
-                                                             TextColor="Black"
-                                                             x:Name="PickerPhuongThuc"
-                                                             SelectedIndexChanged="PickerPhuongThuc_SelectedIndexChanged">
-                                    <renderers:BorderlessPicker.Items>
-                                        <x:String>Tiền mặt</x:String>
-                                        <x:String>Ngân hàng</x:String>
-                                    </renderers:BorderlessPicker.Items>
-                                    <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
-                                </renderers:BorderlessPicker>
-                            </StackLayout>
+                            <!--Phương thức thanh toán 1-->
+                            <Frame Margin="0,30,0,30"
+                                   CornerRadius="10"
+                                   HasShadow="False"
+                                   Padding="0"
+                                   IsClippedToBounds="True">
+                                <StackLayout Spacing="0">
+                                    <StackLayout BackgroundColor="#131C25">
+                                        <Label Text="Phương thức thanh toán"
+                                               TextColor="White"
+                                               Padding="8" />
+                                    </StackLayout>
+                                    <StackLayout BackgroundColor="White">
+                                        <renderers:BorderlessPicker  Margin="10"
+                                                                     Title="Chọn phương thức thanh toán"
+                                                                     TextColor="Black"
+                                                                     x:Name="PickerPhuongThuc"
+                                                                     SelectedIndexChanged="PickerPhuongThuc_SelectedIndexChanged">
+                                            <renderers:BorderlessPicker.Items>
+                                                <x:String>Tiền mặt</x:String>
+                                                <x:String>Ngân hàng</x:String>
+                                            </renderers:BorderlessPicker.Items>
+                                            <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
+                                        </renderers:BorderlessPicker>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
                         </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </ScrollView>
+                    </ScrollView>
 
-            <Frame VerticalOptions="End" Padding="0" HasShadow="True" BackgroundColor="#182848" >
+                    <Frame VerticalOptions="End" Padding="0" HasShadow="True" BackgroundColor="#182848" >
                 <StackLayout VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand"
                              BackgroundColor="#182848" Padding="15, 12, 15, 15" >
                     <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
@@ -294,7 +310,9 @@
                 </StackLayout>
                 
             </Frame>
-        </StackLayout>
+                    
+                </StackLayout>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>
 <!--Margin="0, 40, 0, 20"-->

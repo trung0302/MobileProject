@@ -10,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static Xamarin.Essentials.Permissions;
 using System.Diagnostics;
+using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
 namespace Project.Pages
 {
@@ -28,11 +29,20 @@ namespace Project.Pages
             LblRating.Text = movie.Rating.ToString();
             LblLanguage.Text = movie.Language;
             LblDuration.Text = movie.Duration;
-            ImgMovie.Source = movie.FullImageUrl;
+            LblTicketQty.Text = movie.SoVe.ToString();
+            ImgMovie.Source = movie.ImageUrl;
             //SpanPrice.Text = SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice); 
             SpanTotalPrice.Text = String.Format("{0:n0}", movie.TicketPrice);
             ticketPrice = movie.TicketPrice;
             movieId = movie.Id;
+            GetTicketQty();
+        }
+
+        public async void GetTicketQty()
+        {
+            var movie = await ApiService.GetMovieDetail(movieId);
+
+            LblTicketQty.Text = movie.SoVe.ToString();
         }
 
         private void PickerQty_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,17 +85,45 @@ namespace Project.Pages
                 MovieId = movieId,
                 UserId = Preferences.Get("userId", string.Empty),
             };
-            
-            var response = await ApiService.ReserveMovieTicket(reservation);
-            if (response)
+
+            var movieById = await ApiService.GetMovieDetail(movieId);
+            if (movieById != null)
             {
-                await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
+                if (movieById.SoVe > 0)
+                {
+                    if (movieById.SoVe >= reservation.Quantity)
+                    {
+                        var response = await ApiService.ReserveMovieTicket(reservation);
+                        if (response)
+                        {
+                            await DisplayAlert("Thông báo", "Bạn đã đặt vé thành công!", "Đồng ý");
+                            GetTicketQty();
+                        }
+                        else
+                        {
+                            await DisplayAlert("Thông báo", "Vui lòng điền đẩy đủ thông tin trước khi thanh toán!", "Hủy");
+                        }
+                    }
+                    else
+                    {
+                            await DisplayAlert("Thông báo", "Số vé còn lại của phim không đủ! Vui lòng đặt số vé ít hơn!", "Hủy");
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Thông báo", "Phim đã bán hết vé! Quý khách vui lòng quay lại vào dịp khác!", "Hủy");
+                }
             }
             else
             {
-                await DisplayAlert("Thông báo", "Vui lòng điền đẩy đủ thông tin trước khi thanh toán!", "Hủy");
+                await DisplayAlert("Thông báo", "Có lỗi BE!", "Hủy");
             }
         }
 
+        private async void MyRefreshView_Refreshing(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            MyRefreshView.IsRefreshing = false;
+        }
     }
 }
