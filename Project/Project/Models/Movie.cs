@@ -9,6 +9,7 @@ namespace Project.Models
         public string Id { get; set; }
         public string Name { get; set; }
         public string Duration { get; set; }
+        public int SoVe { get; set; }
         public string Language { get; set; }
         public double Rating { get; set; }
         public string Genre { get; set; }
