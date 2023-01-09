@@ -52,7 +52,7 @@ namespace Project.Pages
                                 var response = await ApiService.UpdateUser(username, EntNewPassword.Text);
                                 if (response)
                                 {
-                                    await DisplayAlert("Thông báo", "Bạn đã cập nhật tài khoản thành công!", "Đồng ý");
+                                    await DisplayAlert("Thông báo", "Bạn đã cập nhật mật khẩu thành công!", "Đồng ý");
                                 }
                                 else
                                 {

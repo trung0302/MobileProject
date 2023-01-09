@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:renderers="clr-namespace:Project.Renderers"
+             BackgroundColor="#191a32"
+             x:Class="Project.Pages.VerifyCodePage">
+    <ContentPage.Content>
+        <StackLayout Margin="20" Spacing="15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="backicon"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           Grid.Row="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="ImgBack" Tapped="ImgBack_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="MÃ XÁC NHẬN"
+                       TextColor="White"
+                       VerticalOptions="Start"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="Title"
+                       HorizontalTextAlignment="Center"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"/>
+            </Grid>
+            <Image Source="forgot.jpg"
+                   HorizontalOptions="Center"
+                   Margin="0, 24, 0, 0"
+                   WidthRequest="250" 
+                   Aspect="AspectFit"/>
+
+            <Label Text="Vui lòng nhập mã xác nhận"  Margin="0, 32, 0, 16"
+                   HorizontalOptions="CenterAndExpand" FontSize="16" TextColor="White" />
+            <renderers:NormalEntry Margin="0, -8, 0, 0"
+                                       x:Name="EntCode"
+                                       TextColor="#979797"
+                                       FontSize="14"    
+                                       Keyboard="Telephone"
+                                       Placeholder="Nhập mã xác nhận"
+                                       PlaceholderColor="#979797" />
+            <Button x:Name="cmdResetPass" CornerRadius="50" Text="GỬI" FontSize="Medium" Margin="0, 40, 0, 0"
+                    FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdResetPass_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
