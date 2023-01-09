@@ -42,5 +42,11 @@ namespace Project.Pages
         {
             await Navigation.PushModalAsync(new SignUpPage());
         }
+
+        private async void LblForgotPass_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ConfirmUserPage());
+
+        }
     }
 }
