@@ -143,7 +143,7 @@ namespace Project.Pages
 
         private void ToolbarSearch_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new SearchMoviePage());
+            Navigation.PushAsync(new SearchMoviePage());
         }
 
         private void CvHanhDongMovies_SelectionChanged(object sender, SelectionChangedEventArgs e)

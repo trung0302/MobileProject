@@ -24,7 +24,7 @@ namespace Project.Pages
 
         private void BtnCall_Clicked(object sender, EventArgs e)
         {
-            PhoneDialer.Open("0123456789");
+            PhoneDialer.Open("19001088");
         }
     }
 }

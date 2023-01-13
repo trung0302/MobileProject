@@ -257,10 +257,15 @@
                                                                      TextColor="Black"
                                                                      x:Name="PickerTheater"
                                                                      SelectedIndexChanged="PickerTheater_SelectedIndexChanged">
-                                                <renderers:BorderlessPicker.Items>
-                                                <x:String>Lotte Bình Dương</x:String>
-                                                <x:String>BTCinema Đông Anh Hà Nội</x:String>
-                                                </renderers:BorderlessPicker.Items>
+                                         <renderers:BorderlessPicker.Items>
+                                                <x:String>BTCINEMA Thủ đức</x:String>
+                                                <x:String>BTCINEMA Tân Bình</x:String>
+                                                <x:String>BTCINEMA Nguyễn Văn Quá</x:String>
+                                                <x:String>BTCINEMA Nguyễn Trãi</x:String>
+                                                <x:String>BTCINEMA Bình Dương</x:String>
+                                                <x:String>BTCINEMA Dĩ An</x:String>
+                                                <x:String>BTCINEMA Hai Bà Trưng</x:String>
+                                        </renderers:BorderlessPicker.Items>
                                                 <renderers:BorderlessPicker.SelectedIndex>0</renderers:BorderlessPicker.SelectedIndex>
                                             </renderers:BorderlessPicker>
                                         </StackLayout>
@@ -302,8 +307,8 @@
                              BackgroundColor="#182848" Padding="15, 12, 15, 15" >
                     <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                             <Label Text="Tổng:" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="White" /> 
-                            <Label x:Name="SpanTotalPrice" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="#585de4" />
-                        <Label Text="VNĐ" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="#ec2f26" /> 
+                            <Label x:Name="SpanTotalPrice" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Red" />
+                        <Label Text="VNĐ" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" TextColor="Red" /> 
                     </StackLayout>
                     <Button x:Name="cmdPayment" Text="Thanh toán" FontSize="Medium" TextTransform="None" CornerRadius="10" HeightRequest="40"
                          FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdPayment_Clicked" ></Button>

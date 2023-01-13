@@ -45,7 +45,7 @@
                                        Keyboard="Telephone"
                                        Placeholder="Nhập mã xác nhận"
                                        PlaceholderColor="#979797" />
-            <Button x:Name="cmdResetPass" CornerRadius="50" Text="GỬI" FontSize="Medium" Margin="0, 40, 0, 0"
+            <Button x:Name="cmdResetPass" CornerRadius="50" Text="XÁC NHẬN" FontSize="Medium" Margin="0, 40, 0, 0"
                     FontAttributes="Bold" TextColor="White" BackgroundColor="#3a7bd5" Clicked="cmdResetPass_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
