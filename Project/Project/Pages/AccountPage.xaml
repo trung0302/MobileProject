@@ -16,7 +16,7 @@
                 <StackLayout HorizontalOptions="CenterAndExpand" Padding="10, 40">
                     <Image Source="clipped.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Label x:Name="LblUserName" FontSize="24" TextColor="#20a0e7" FontAttributes="Bold" Margin="30, 24, 12, 12"
+                        <Label x:Name="LblUserName" FontSize="24" TextColor="White" FontAttributes="Bold" Margin="30, 24, 12, 12"
                                HorizontalOptions="CenterAndExpand"/>
                         <!--<Image Source="fix.png" Aspect="AspectFit" WidthRequest="20" BackgroundColor="AliceBlue" Margin="12, 12, -28, 0">
                             <Image.GestureRecognizers>
@@ -48,7 +48,7 @@
                         </StackLayout.GestureRecognizers>
                         <Frame BackgroundColor="#24243b" CornerRadius="12">
                             <StackLayout Orientation="Horizontal">
-                                <Image Source="edit.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
+                                <Image Source="password.png" WidthRequest="20" Aspect="AspectFit" Grid.Row="0" Grid.Column="0"/>
                                 <Label Text="Đổi mật khẩu" FontSize="18" TextColor="White" Margin="16, 0" Grid.Row="0" Grid.Column="1"/>
                             </StackLayout>
                         </Frame>

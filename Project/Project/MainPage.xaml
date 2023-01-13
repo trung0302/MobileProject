@@ -20,7 +20,7 @@
         <Tab Icon="home.png" Title="Trang chủ" >
             <ShellContent ContentTemplate="{DataTemplate pages:HomePageTest}" />
         </Tab>
-        <Tab Icon="history.png" Title="Lịch sử" >
+        <Tab Icon="historyIcon.png" Title="Lịch sử" >
             <ShellContent ContentTemplate="{DataTemplate pages:OrderPage}" />
         </Tab>
         <Tab Icon="hotmv.png" Title="Sắp ra mắt">
